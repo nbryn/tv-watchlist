@@ -3,7 +3,7 @@ import { GET_ERRORS, GET_MOVIES } from "./types";
 
 export const newMovie = (movie, history) => async dispatch => {
   try {
-    const res = axios.post("http://localhost:8080/api/movie", movie);
+    const res = axios.post("http://localhost:8080/movie", movie);
     history.push("/dashboard");
   } catch (err) {
     dispatch({
@@ -14,7 +14,7 @@ export const newMovie = (movie, history) => async dispatch => {
 };
 
 export const getMovies = () => async dispatch => {
-  const res = await axios.get("http://localhost:8080/api/movie/all");
+  const res = await axios.get("http://localhost:8080/movie/all");
   dispatch({
     type: GET_MOVIES,
     payload: res.data

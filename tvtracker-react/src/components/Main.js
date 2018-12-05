@@ -11,6 +11,8 @@ class Main extends Component {
   }
 
   render() {
+    const { movies } = this.props.movie;
+
     return (
       <div className="Movies">
         <div className="container">
@@ -19,9 +21,12 @@ class Main extends Component {
               <h1 className="diplay-4 text-center">Movies</h1>
               <br />
               <NewMovieButton />
+
               <br />
               <hr />
-              <MovieItem />
+              {movies.map(movie => (
+                <MovieItem key={movie.id} movie={movie} />
+              ))}
             </div>
           </div>
         </div>
@@ -35,9 +40,9 @@ Main.propTypes = {
   getMovies: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  movie: state.movie
-});
+const mapStateToProps = state => {
+  return { movie: state.movie };
+};
 
 export default connect(
   mapStateToProps,

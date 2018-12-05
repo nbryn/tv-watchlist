@@ -2,16 +2,17 @@ import React, { Component } from "react";
 
 class MovieItem extends Component {
   render() {
+    const { movie } = this.props;
     return (
       <div className="container">
         <div className="card card-body bg-light mb-3">
           <div className="row">
             <div className="col-2">
-              <span className="mx-auto">TVTracker</span>
+              <span className="mx-auto">Genre: {movie.genre}</span>
             </div>
             <div className="col-lg-6 col-md-4 col-8">
-              <h3>TVTracker</h3>
-              <p>Track movies and series</p>
+              <h3>Title: {movie.title}</h3>
+              <p>Rating: {movie.rating}</p>
             </div>
             <div className="col-md-4 d-none d-lg-block">
               <ul className="list-group">
