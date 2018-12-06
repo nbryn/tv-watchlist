@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddMovie from "./components/movie/AddMovie";
 import { Provider } from "react-redux";
 import store from "./store";
+import UpdateMovie from "./components/movie/UpdateMovie";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Header />
             <Route exact path="/main" component={Main} />
             <Route exact path="/addMovie" component={AddMovie} />
+            <Route exact path="/updateMovie/:id" component={UpdateMovie} />
           </div>
         </Router>
       </Provider>
