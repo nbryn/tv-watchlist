@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import MovieItem from "./movie/MovieItem";
-import NewMovieButton from "./movie/NewMovieButton";
+import MovieItem from "./MovieItem";
+import NewMovieButton from "./NewMovieButton";
 import { connect } from "react-redux";
-import { getMovies } from "../actions/movieActions";
+import { getMovies } from "../../actions/movieActions";
 import PropTypes from "prop-types";
 
-class Main extends Component {
+class MovieMain extends Component {
   componentDidMount() {
     this.props.getMovies();
   }
@@ -21,7 +21,6 @@ class Main extends Component {
               <h1 className="diplay-4 text-center">Movies</h1>
               <br />
               <NewMovieButton />
-
               <br />
               <hr />
               {movies.map(movie => (
@@ -35,7 +34,7 @@ class Main extends Component {
   }
 }
 
-Main.propTypes = {
+MovieMain.propTypes = {
   movie: PropTypes.object.isRequired,
   getMovies: PropTypes.func.isRequired
 };
@@ -47,4 +46,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { getMovies }
-)(Main);
+)(MovieMain);

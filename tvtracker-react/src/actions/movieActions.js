@@ -4,7 +4,7 @@ import { GET_ERRORS, GET_MOVIES, GET_MOVIE } from "./types";
 export const newMovie = (movie, history) => async dispatch => {
   try {
     const res = axios.post("http://localhost:8080/movie", movie);
-    history.push("/dashboard");
+    history.push("/main");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

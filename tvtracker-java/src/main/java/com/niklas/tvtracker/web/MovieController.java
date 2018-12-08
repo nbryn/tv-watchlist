@@ -28,13 +28,13 @@ public class MovieController {
         if(errorMap != null) return errorMap;
 
         Movie movie1 = movieService.saveMovie(movie);
-        return new ResponseEntity<Movie>(movie, HttpStatus.CREATED);
+        return new ResponseEntity<Movie>(movie1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{title)")
-    public ResponseEntity<?> getMovieByTitle(@PathVariable String title) {
+    @GetMapping("/{movieId})")
+    public ResponseEntity<?> getMovieById(@PathVariable String movieId) {
 
-        Movie movie = movieService.findMovieByTitle(title);
+        Movie movie = movieService.findMovieById(movieId);
 
         return new ResponseEntity<Movie>(movie, HttpStatus.OK);
     }

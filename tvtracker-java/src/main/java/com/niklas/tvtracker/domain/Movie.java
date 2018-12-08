@@ -18,10 +18,10 @@ public class Movie {
     private String title;
     @NotBlank(message = "Genre is required")
     private String genre;
-    @NotBlank(message = "Movie description is required")
-    private String description;
     @NotNull(message = "IMDB rating is required")
     private double rating;
+    @NotBlank(message = "Movie description is required")
+    private String description;
 
 
     @JsonFormat(pattern = "dd-mm-yyyy")
@@ -73,28 +73,7 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-
-    public Date getCreated_At() {
-        return created_At;
-    }
-
-    public void setCreated_At(Date created_At) {
-        this.created_At = created_At;
-    }
-
-    public Date getUpdated_At() {
-        return updated_At;
-    }
-
-    public void setUpdated_At(Date updated_At) {
-        this.updated_At = updated_At;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        this.created_At = new Date();
-    }
-
-    @PreUpdate
-    protected void onUpdate() { this.updated_At = new Date(); }
 }
+
+
+

@@ -32,7 +32,7 @@ img {
   background-position: center;
   height: 100vh;
   margin-top: -24px;
-  margin-bottom: -40px;
+  margin-bottom: -50px;
 }
 
 .landing-inner {
@@ -62,16 +62,11 @@ img {
 }
 
 .btn-primary::placeholder {
-  color: rgb(230, 15, 15);
-}
-
-.container {
-  width: 100%;
-  height: 30px;
+  color: rgb(230, 15, 15) !important;
 }
 
 .row {
-  top: 10;
+  top: 20;
   left: 50;
   margin-top: -10px;
   margin-bottom: -10px;
@@ -80,8 +75,34 @@ img {
 }
 
 .list-group {
+  margin-top: -1px;
+  margin-bottom: -10px;
+  line-height: 1;
+  width: 75%;
+  height: -10px;
+}
+
+.col-md-3 {
   margin-top: -10px;
   margin-bottom: -5px;
-  width: 100%;
-  height: 40px;
+  line-height: 1;
+  right: -510px;
+  width: 75%;
+  height: -10px;
+}
+
+.col-lg-4 {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  width: 50%;
+  height: 20px;
+}
+
+.col-md-2 {
+  margin-top: -10px;
+  margin-bottom: -50px;
+  line-height: 0.7;
+  left: -74px;
+  width: 20%;
+  height: 20px;
 }

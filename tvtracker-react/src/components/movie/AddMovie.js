@@ -10,9 +10,9 @@ class AddMovie extends Component {
 
     this.state = {
       title: "",
-      description: "",
-      rating: "",
       genre: "",
+      rating: "",
+      description: "",
       errors: {}
     };
 
@@ -35,8 +35,8 @@ class AddMovie extends Component {
     const newMovie = {
       title: this.state.title,
       genre: this.state.genre,
-      description: this.state.description,
-      rating: this.state.rating
+      rating: this.state.rating,
+      description: this.state.description
     };
 
     this.props.newMovie(newMovie, this.props.history);
@@ -90,6 +90,22 @@ class AddMovie extends Component {
                     <input
                       type="text"
                       className={classnames("form-control form-control-lg", {
+                        "is-invalid": errors.rating
+                      })}
+                      placeholder="Rating"
+                      name="rating"
+                      value={this.state.rating}
+                      onChange={this.onChange}
+                    />
+                    {errors.rating && (
+                      <div className="invalid-feedback">{errors.rating}</div>
+                    )}
+                  </div>
+
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className={classnames("form-control form-control-lg", {
                         "is-invalid": errors.description
                       })}
                       placeholder="Description"
@@ -101,22 +117,6 @@ class AddMovie extends Component {
                       <div className="invalid-feedback">
                         {errors.description}
                       </div>
-                    )}
-                  </div>
-
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.rating
-                      })}
-                      placeholder="Rating"
-                      name="rating"
-                      value={this.state.rating}
-                      onChange={this.onChange}
-                    />
-                    {errors.rating && (
-                      <div className="invalid-feedback">{errors.rating}</div>
                     )}
                   </div>
 
