@@ -3,9 +3,9 @@ package com.niklas.tvtracker.exceptions;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus
-public class MovieTitleException extends RuntimeException {
+public class TitleException extends RuntimeException {
 
-    public MovieTitleException(String message) {
+    public TitleException(String message) {
         super(message);
     }
 }

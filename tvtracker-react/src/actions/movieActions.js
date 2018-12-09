@@ -1,10 +1,10 @@
 import axios from "axios";
-import { GET_ERRORS, GET_MOVIES, GET_MOVIE } from "./types";
+import { GET_ERRORS, GET_MOVIES, GET_MOVIE } from "./actionTypes";
 
 export const newMovie = (movie, history) => async dispatch => {
   try {
     const res = axios.post("http://localhost:8080/movie", movie);
-    history.push("/main");
+    history.push("/movieMain");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

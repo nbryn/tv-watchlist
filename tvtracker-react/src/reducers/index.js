@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import errorReducer from "./errorReducer";
-import movieReducer from "./movieReducer";
+import ErrorReducer from "./ErrorReducer";
+import MovieReducer from "./MovieReducer";
+import SeriesReducer from "./SeriesReducer";
+import TvShowReducer from "./TvShowReducer";
 
 export default combineReducers({
-  errors: errorReducer,
-  movie: movieReducer
+  errors: ErrorReducer,
+  movie: MovieReducer,
+  series: SeriesReducer,
+  tvShow: TvShowReducer
 });

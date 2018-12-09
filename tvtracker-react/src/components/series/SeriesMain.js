@@ -14,7 +14,7 @@ class SeriesMain extends Component {
     const { series } = this.props.serie;
 
     return (
-      <div className="Series">
+      <div className="series">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -23,7 +23,7 @@ class SeriesMain extends Component {
               <NewSeriesButton />
               <br />
               <hr />
-              {Series.map(serie => (
+              {series.map(serie => (
                 <SeriesItem key={serie.id} serie={serie} />
               ))}
             </div>

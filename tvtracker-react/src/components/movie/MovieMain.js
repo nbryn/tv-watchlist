@@ -14,7 +14,7 @@ class MovieMain extends Component {
     const { movies } = this.props.movie;
 
     return (
-      <div className="Movies">
+      <div className="movies">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

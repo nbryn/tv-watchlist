@@ -1,10 +1,10 @@
 package com.niklas.tvtracker.exceptions;
 
-public class MovieTitleResponse {
+public class TitleResponse {
 
     private String title;
 
-    public MovieTitleResponse(String title) {
+    public TitleResponse(String title) {
         this.title = title;
     }
 

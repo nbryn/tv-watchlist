@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { getMovie, newMovie } from "../../actions/movieActions";
+import { getTvShow, newTvShow } from "../../actions/tvShowActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { GET_ERRORS } from "../../actions/actionTypes";
 
-class UpdateMovie extends Component {
+class UpdateTvShow extends Component {
   constructor() {
     super();
 
@@ -23,7 +23,7 @@ class UpdateMovie extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { id, title, genre, rating, description } = nextProps.movie;
+    const { id, title, genre, rating, description } = nextProps.tvShow;
 
     this.setState({
       id,
@@ -36,7 +36,7 @@ class UpdateMovie extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    this.props.getMovie(id, this.props.history);
+    this.props.getTvShow(id, this.props.history);
   }
 
   onChange(e) {
@@ -46,7 +46,7 @@ class UpdateMovie extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const updateMovie = {
+    const updateTvShow = {
       id: this.state.id,
       title: this.state.title,
       genre: this.state.genre,
@@ -54,7 +54,7 @@ class UpdateMovie extends Component {
       rating: this.state.description
     };
 
-    this.props.newMovie(newMovie, this.props.history);
+    this.props.newTvShow(newTvShow, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -64,7 +64,7 @@ class UpdateMovie extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-7 m-auto">
-              <h5 className="display-4 text-center">Edit Movie Info</h5>
+              <h5 className="display-4 text-center">Edit Tv-Show Info</h5>
               <hr />
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
@@ -137,17 +137,17 @@ class UpdateMovie extends Component {
   }
 }
 
-UpdateMovie.propTypes = {
-  getMovie: PropTypes.func.isRequired,
-  newMovie: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired
+UpdateTvShow.propTypes = {
+  getTvshow: PropTypes.func.isRequired,
+  newTvShow: PropTypes.func.isRequired,
+  tvShow: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  movie: state.movie.movie
+  tvShow: state.tvShow.tvShow
 });
 
 export default connect(
   mapStateToProps,
-  { getMovie, newMovie }
-)(UpdateMovie);
+  { getTvShow, newTvShow }
+)(UpdateTvShow);

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { newMovie } from "../../actions/movieActions";
+import { newSerie } from "../../actions/seriesActions";
 
-class AddMovie extends Component {
+class AddSeries extends Component {
   constructor() {
     super();
 
@@ -32,14 +32,14 @@ class AddMovie extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const newMovie = {
+    const newSerie = {
       title: this.state.title,
       genre: this.state.genre,
       rating: this.state.rating,
       description: this.state.description
     };
 
-    this.props.newMovie(newMovie, this.props.history);
+    this.props.newSerie(newSerie, this.props.history);
   }
 
   render() {
@@ -47,11 +47,11 @@ class AddMovie extends Component {
 
     return (
       <div>
-        <div className="movie">
+        <div className="series">
           <div className="container">
             <div className="row">
               <div className="col-md-7 m-auto">
-                <h5 className="display-4 text-center">Add Movie</h5>
+                <h5 className="display-4 text-center">Add Series</h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
@@ -138,7 +138,7 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
+AddSeries.propTypes = {
   newMovie: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -149,5 +149,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { newMovie }
-)(AddMovie);
+  { newSerie }
+)(AddSeries);

@@ -13,8 +13,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler
-    public final ResponseEntity<Object> handleMovieTitleException(MovieTitleException ex, WebRequest request) {
-        MovieTitleResponse response = new MovieTitleResponse(ex.getMessage());
+    public final ResponseEntity<Object> handleMovieTitleException(TitleException ex, WebRequest request) {
+        TitleResponse response = new TitleResponse(ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }
