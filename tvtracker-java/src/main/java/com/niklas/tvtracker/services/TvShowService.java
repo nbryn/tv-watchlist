@@ -21,12 +21,12 @@ public class TvShowService {
         }
     }
 
-    public TvShow findTvShowById(String tvShowId) {
+    public TvShow findTvShowByTitle(String title) {
 
-        TvShow tvShow = tvShowRepository.findByTitle(tvShowId.toUpperCase());
+        TvShow tvShow = tvShowRepository.findByTitle(title.toUpperCase());
 
         if(tvShow == null) {
-            throw new TitleException("TvShow '"+tvShowId+"' does not exist");
+            throw new TitleException("TvShow '"+title+"' does not exist");
 
         }
 

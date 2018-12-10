@@ -3,8 +3,12 @@ import { GET_ERRORS, GET_MOVIES, GET_MOVIE } from "./actionTypes";
 
 export const newMovie = (movie, history) => async dispatch => {
   try {
-    const res = axios.post("http://localhost:8080/movie", movie);
+    axios.post("http://localhost:8080/movie", movie);
     history.push("/movieMain");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {}
+    });
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
@@ -22,9 +26,13 @@ export const getMovies = () => async dispatch => {
 };
 
 export const getMovie = (id, history) => async dispatch => {
-  const res = await axios.get(`http://localhost:8080/movie/${id}`);
-  dispatch({
-    type: GET_MOVIE,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get(`http://localhost:8080/movie/${id}`);
+    dispatch({
+      type: GET_MOVIE,
+      payload: res.data
+    });
+  } catch (error) {
+    history.push("/movieMain");
+  }
 };

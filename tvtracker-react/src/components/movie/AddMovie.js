@@ -32,6 +32,7 @@ class AddMovie extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
     const newMovie = {
       title: this.state.title,
       genre: this.state.genre,

@@ -31,10 +31,10 @@ public class SeriesController {
             return new ResponseEntity<Series>(series1, HttpStatus.CREATED);
         }
 
-        @GetMapping("/{seriesId})")
-        public ResponseEntity<?> getSeriesById(@PathVariable String seriesId) {
+        @GetMapping("/{title}")
+        public ResponseEntity<?> getSeriesById(@PathVariable String title) {
 
-            Series series = seriesService.findSeriesById(seriesId);
+            Series series = seriesService.findSeriesByTitle(title);
 
             return new ResponseEntity<Series>(series, HttpStatus.OK);
         }

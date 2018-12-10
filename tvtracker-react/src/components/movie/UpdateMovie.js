@@ -3,7 +3,6 @@ import { getMovie, newMovie } from "../../actions/movieActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { GET_ERRORS } from "../../actions/actionTypes";
 
 class UpdateMovie extends Component {
   constructor() {
@@ -23,6 +22,9 @@ class UpdateMovie extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
     const { id, title, genre, rating, description } = nextProps.movie;
 
     this.setState({
@@ -54,7 +56,7 @@ class UpdateMovie extends Component {
       rating: this.state.description
     };
 
-    this.props.newMovie(newMovie, this.props.history);
+    this.props.newMovie(updateMovie, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -101,13 +103,14 @@ class UpdateMovie extends Component {
                     })}
                     placeholder="Rating"
                     name="rating"
-                    value={this.state.name}
+                    value={this.state.rating}
                     onChange={this.onChange}
                   />
                   {errors.rating && (
                     <div className="invalid-feedback">{errors.rating}</div>
                   )}
                 </div>
+
                 <div className="form-group">
                   <input
                     type="text"
@@ -140,11 +143,13 @@ class UpdateMovie extends Component {
 UpdateMovie.propTypes = {
   getMovie: PropTypes.func.isRequired,
   newMovie: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  movie: state.movie.movie
+  movie: state.movie.movie,
+  errors: state.errors
 });
 
 export default connect(

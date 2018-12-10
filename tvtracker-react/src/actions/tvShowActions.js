@@ -22,9 +22,13 @@ export const getTvShows = () => async dispatch => {
 };
 
 export const getTvShow = (id, history) => async dispatch => {
-  const res = await axios.get(`http://localhost:8080/tvshow/${id}`);
-  dispatch({
-    type: GET_TVSHOW,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get(`http://localhost:8080/tvshow/${id}`);
+    dispatch({
+      type: GET_TVSHOW,
+      payload: res.data
+    });
+  } catch (error) {
+    history.push("/tvShowMain");
+  }
 };

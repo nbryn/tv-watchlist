@@ -22,9 +22,13 @@ export const getSeries = () => async dispatch => {
 };
 
 export const getSerie = (id, history) => async dispatch => {
-  const res = await axios.get(`http://localhost:8080/series/${id}`);
-  dispatch({
-    type: GET_SERIE,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get(`http://localhost:8080/series/${id}`);
+    dispatch({
+      type: GET_SERIE,
+      payload: res.data
+    });
+  } catch (error) {
+    history.push("/seriesMain");
+  }
 };

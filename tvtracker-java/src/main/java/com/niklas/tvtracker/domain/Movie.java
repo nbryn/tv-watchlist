@@ -1,11 +1,8 @@
 package com.niklas.tvtracker.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Entity
 public class Movie {
@@ -22,8 +19,6 @@ public class Movie {
     private double rating;
     @NotBlank(message = "Movie description is required")
     private String description;
-
-
 
 
     public Movie() {

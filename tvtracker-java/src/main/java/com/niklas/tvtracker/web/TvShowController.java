@@ -31,10 +31,10 @@ public class TvShowController {
         return new ResponseEntity<TvShow>(tvShow1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{tvShowId})")
-    public ResponseEntity<?> getMovieById(@PathVariable String tvShowId) {
+    @GetMapping("/{title}")
+    public ResponseEntity<?> getTvShowByTitle(@PathVariable String title) {
 
-        TvShow tvShow = tvShowService.findTvShowById(tvShowId);
+        TvShow tvShow = tvShowService.findTvShowByTitle(title);
 
         return new ResponseEntity<TvShow>(tvShow, HttpStatus.OK);
     }

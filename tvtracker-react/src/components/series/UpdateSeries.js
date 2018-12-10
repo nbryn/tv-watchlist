@@ -23,6 +23,9 @@ class UpdateSeries extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
     const { id, title, genre, rating, description } = nextProps.serie;
 
     this.setState({
@@ -140,11 +143,13 @@ class UpdateSeries extends Component {
 UpdateSeries.propTypes = {
   getSerie: PropTypes.func.isRequired,
   newSerie: PropTypes.func.isRequired,
-  serie: PropTypes.object.isRequired
+  serie: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  serie: state.serie.serie
+  serie: state.serie.serie,
+  errors: state.errors
 });
 
 export default connect(

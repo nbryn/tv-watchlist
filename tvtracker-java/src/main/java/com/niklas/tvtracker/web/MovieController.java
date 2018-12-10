@@ -31,10 +31,10 @@ public class MovieController {
         return new ResponseEntity<Movie>(movie1, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{movieId})")
-    public ResponseEntity<?> getMovieById(@PathVariable String movieId) {
+    @GetMapping("/{title}")
+    public ResponseEntity<?> getMovieById(@PathVariable String title) {
 
-        Movie movie = movieService.findMovieById(movieId);
+        Movie movie = movieService.findMovieByTitle(title);
 
         return new ResponseEntity<Movie>(movie, HttpStatus.OK);
     }

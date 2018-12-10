@@ -21,12 +21,12 @@ public class MovieService {
         }
     }
 
-    public Movie findMovieById(String movieId) {
+    public Movie findMovieByTitle(String title) {
 
-        Movie movie = movieRepository.findByTitle(movieId.toUpperCase());
+        Movie movie = movieRepository.findByTitle(title.toUpperCase());
 
         if(movie == null) {
-            throw new TitleException("Movie '"+movieId+"' does not exist");
+            throw new TitleException("Movie '"+title+"' does not exist");
 
         }
 

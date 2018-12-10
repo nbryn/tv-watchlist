@@ -21,12 +21,12 @@ public class SeriesService {
         }
     }
 
-    public Series findSeriesById(String seriesId) {
+    public Series findSeriesByTitle(String title) {
 
-        Series series = seriesRepository.findByTitle(seriesId.toUpperCase());
+        Series series = seriesRepository.findByTitle(title.toUpperCase());
 
         if(series == null) {
-            throw new TitleException("Series '"+seriesId+"' does not exist");
+            throw new TitleException("Series '"+title+"' does not exist");
 
         }
 

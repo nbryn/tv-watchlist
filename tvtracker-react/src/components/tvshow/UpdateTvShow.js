@@ -3,7 +3,6 @@ import { getTvShow, newTvShow } from "../../actions/tvShowActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { GET_ERRORS } from "../../actions/actionTypes";
 
 class UpdateTvShow extends Component {
   constructor() {
@@ -23,6 +22,9 @@ class UpdateTvShow extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
     const { id, title, genre, rating, description } = nextProps.tvShow;
 
     this.setState({
@@ -54,7 +56,7 @@ class UpdateTvShow extends Component {
       rating: this.state.description
     };
 
-    this.props.newTvShow(newTvShow, this.props.history);
+    this.props.newTvShow(updateTvShow, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -140,11 +142,13 @@ class UpdateTvShow extends Component {
 UpdateTvShow.propTypes = {
   getTvshow: PropTypes.func.isRequired,
   newTvShow: PropTypes.func.isRequired,
-  tvShow: PropTypes.object.isRequired
+  tvShow: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  tvShow: state.tvShow.tvShow
+  tvShow: state.tvShow.tvShow,
+  errors: state.errors
 });
 
 export default connect(
