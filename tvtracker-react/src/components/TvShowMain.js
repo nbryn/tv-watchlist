@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TvShowItem from "./TvShowItem";
-import NewTvShowButton from "./NewTvShowButton";
+import VideoProdItem from "../components/videoProduction/VideoProdItem";
+import NewVideoProdButton from "./videoProduction/NewVideoProdButton";
 import { connect } from "react-redux";
-import { getTvShows } from "../../actions/tvShowActions";
+import { getTvShows } from "../actions/TvShowActions";
 import PropTypes from "prop-types";
 
 class TvShowMain extends Component {
@@ -14,17 +14,17 @@ class TvShowMain extends Component {
     const { tvShows } = this.props.tvShow;
 
     return (
-      <div className="tvshow">
+      <div className="videoprod">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">Tv-Shows</h1>
               <br />
-              <NewTvShowButton />
+              <NewVideoProdButton />
               <br />
               <hr />
-              {tvShows.map(tvShow => (
-                <TvShowItem key={tvShow.id} tvShow={tvShow} />
+              {tvShows.map(videoProd => (
+                <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}
             </div>
           </div>

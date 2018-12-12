@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { newSerie } from "../../actions/seriesActions";
+import { newVideoProd } from "../../actions/VideoProdActions";
 
-class AddSeries extends Component {
+class AddVideoProd extends Component {
   constructor() {
     super();
 
@@ -13,6 +13,7 @@ class AddSeries extends Component {
       genre: "",
       rating: "",
       description: "",
+      type: "",
       errors: {}
     };
 
@@ -22,7 +23,7 @@ class AddSeries extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.error });
+      this.setState({ errors: nextProps.errors });
     }
   }
 
@@ -32,14 +33,16 @@ class AddSeries extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const newSerie = {
+
+    const newVideoProd = {
       title: this.state.title,
       genre: this.state.genre,
       rating: this.state.rating,
-      description: this.state.description
+      description: this.state.description,
+      type: this.state.type
     };
 
-    this.props.newSerie(newSerie, this.props.history);
+    this.props.newVideoProd(newVideoProd, this.props.history);
   }
 
   render() {
@@ -47,11 +50,11 @@ class AddSeries extends Component {
 
     return (
       <div>
-        <div className="series">
+        <div className="videoprod">
           <div className="container">
             <div className="row">
-              <div className="col-md-7 m-auto">
-                <h5 className="display-4 text-center">Add Series</h5>
+              <div className="col-md-7 ">
+                <h5 className="display-4 text-center">Add item</h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
@@ -65,11 +68,10 @@ class AddSeries extends Component {
                       value={this.state.title}
                       onChange={this.onChange}
                     />
-                    {errors.projectName && (
+                    {errors.title && (
                       <div className="invalid-feedback">{errors.title}</div>
                     )}
                   </div>
-
                   <div className="form-group">
                     <input
                       type="text"
@@ -85,7 +87,6 @@ class AddSeries extends Component {
                       <div className="invalid-feedback">{errors.genre}</div>
                     )}
                   </div>
-
                   <div className="form-group">
                     <input
                       type="text"
@@ -120,6 +121,57 @@ class AddSeries extends Component {
                     )}
                   </div>
 
+                  <div
+                    className="btn-group btn-group-toggle"
+                    data-toggle="buttons"
+                  >
+                    <div className="first">
+                      <label className="btn btn-primary">
+                        <input
+                          type="radio"
+                          placeholder="Type"
+                          name="type"
+                          id="type1"
+                          autoComplete="off"
+                          value={this.state.type}
+                          value={"movie"}
+                          onChange={this.onChange}
+                        />{" "}
+                        Movie
+                      </label>
+                    </div>
+                    <div className="second">
+                      <label className="btn btn-primary">
+                        <input
+                          type="radio"
+                          placeholder="Type"
+                          name="type"
+                          id="type2"
+                          autoComplete="off"
+                          value={this.state.type}
+                          value={"series"}
+                          onChange={this.onChange}
+                        />{" "}
+                        Series
+                      </label>
+                    </div>
+                    <div className="third">
+                      <label className="btn btn-primary">
+                        <input
+                          type="radio"
+                          placeholder="Type"
+                          name="type"
+                          id="type3"
+                          autoComplete="off"
+                          value={this.state.type}
+                          value={"tvshow"}
+                          onChange={this.onChange}
+                        />{" "}
+                        Tv-Show
+                      </label>
+                    </div>
+                  </div>
+
                   <div className="form-group">
                     <input
                       type="submit"
@@ -138,8 +190,8 @@ class AddSeries extends Component {
   }
 }
 
-AddSeries.propTypes = {
-  newMovie: PropTypes.func.isRequired,
+AddVideoProd.propTypes = {
+  newVideoProd: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
 
@@ -149,5 +201,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { newSerie }
-)(AddSeries);
+  { newVideoProd }
+)(AddVideoProd);

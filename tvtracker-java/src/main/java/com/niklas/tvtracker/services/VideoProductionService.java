@@ -1,0 +1,87 @@
+package com.niklas.tvtracker.services;
+
+import com.niklas.tvtracker.domain.VideoProduction;
+import com.niklas.tvtracker.exceptions.TitleException;
+import com.niklas.tvtracker.repositories.VideoProductionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class VideoProductionService {
+
+    @Autowired
+    private VideoProductionRepository videoProductionRepository;
+
+    public VideoProduction saveVideoProduction(VideoProduction videoProduction) {
+        try {
+            videoProduction.setTitle(videoProduction.getTitle().toUpperCase());
+            return videoProductionRepository.save(videoProduction);
+        } catch (Exception e) {
+            throw new TitleException("Title '"+ videoProduction.getTitle().toUpperCase()+"' already exists");
+        }
+    }
+
+    public VideoProduction findVideoProductionByTitle(String title) {
+
+        VideoProduction videoProduction = videoProductionRepository.findByTitle(title.toUpperCase());
+
+        if(videoProduction == null) {
+            throw new TitleException("VideoProduction '"+title+"' does not exist");
+
+        }
+
+        return videoProduction;
+    }
+
+    public List<VideoProduction> findAllSeries() {
+        List<VideoProduction> all = videoProductionRepository.findAll();
+
+        List<VideoProduction> series = all.stream()
+             .filter(m -> m.getType().toUpperCase().equals("SERIES"))
+             .collect(Collectors.toList());
+
+        return series;
+
+    }
+
+    public List<VideoProduction> findAllMovies() {
+        List<VideoProduction> all = videoProductionRepository.findAll();
+
+        List<VideoProduction> videoProductions = all.stream()
+                .filter(m -> m.getType().toUpperCase().equals("MOVIE"))
+                .collect(Collectors.toList());
+
+        return videoProductions;
+
+    }
+
+    public List<VideoProduction> findAllTvShows() {
+        List<VideoProduction> all = videoProductionRepository.findAll();
+
+        List<VideoProduction> tvVideoProductions = all.stream()
+                .filter(m -> m.getType().toUpperCase().equals("TVSHOW"))
+                .collect(Collectors.toList());
+
+        return tvVideoProductions;
+
+    }
+
+    public List<VideoProduction> findAll() {
+
+        return videoProductionRepository.findAll();
+    }
+
+    public void deleteMovieByTitle(String title) {
+
+        VideoProduction videoProduction = videoProductionRepository.findByTitle(title.toUpperCase());
+
+        if(videoProduction == null) {
+            throw new TitleException("VideoProduction '"+title+"' does not exist");
+        }
+
+        videoProductionRepository.delete(videoProduction);
+    }
+}

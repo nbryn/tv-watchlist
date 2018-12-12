@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { SideNav, Nav } from "react-sidenav";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import MovieMain from "../movie/MovieMain";
-import SeriesMain from "../series/SeriesMain";
-import TvShowMain from "../tvshow/TvShowMain";
 import "./navigation.css";
 
 class Navigation extends Component {

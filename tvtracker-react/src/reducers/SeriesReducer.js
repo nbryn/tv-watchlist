@@ -1,4 +1,4 @@
-import { GET_SERIES, GET_SERIE } from "../actions/actionTypes";
+import { GET_SERIES } from "../actions/ActionTypes";
 
 const initialState = {
   series: [],
@@ -9,11 +9,7 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GET_SERIES:
       return Object.assign({}, state, {
-        movies: action.payload
-      });
-    case GET_SERIE:
-      return Object.assign({}, state, {
-        project: action.payload
+        series: action.payload
       });
     default:
       return state;

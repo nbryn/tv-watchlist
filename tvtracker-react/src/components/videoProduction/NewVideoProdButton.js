@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const AddTvShowButton = () => {
+const NewVideoProdButton = () => {
   return (
     <React.Fragment>
-      <Link to="/addTvShow" className="btn btn-lg btn-info">
-        Add Tv-Show
+      <Link to="/addVideoProd" className="btn btn-lg btn-info">
+        Add item
       </Link>
     </React.Fragment>
   );
 };
 
-export default AddTvShowButton;
+export default NewVideoProdButton;

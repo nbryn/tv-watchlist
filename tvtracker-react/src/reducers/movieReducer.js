@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIE } from "../actions/actionTypes";
+import { GET_MOVIES } from "../actions/ActionTypes";
 
 const initialState = {
   movies: [],
@@ -10,10 +10,6 @@ export default function(state = initialState, action) {
     case GET_MOVIES:
       return Object.assign({}, state, {
         movies: action.payload
-      });
-    case GET_MOVIE:
-      return Object.assign({}, state, {
-        movie: action.payload
       });
     default:
       return state;

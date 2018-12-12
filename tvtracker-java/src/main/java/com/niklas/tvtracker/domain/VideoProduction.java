@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Movie {
+public class VideoProduction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,11 +17,14 @@ public class Movie {
     private String genre;
     @NotNull(message = "IMDB rating is required")
     private double rating;
-    @NotBlank(message = "Movie description is required")
+    @NotBlank(message = "Description is required")
     private String description;
+    @NotBlank(message = "Type is required")
+    private String type;
 
 
-    public Movie() {
+
+    public VideoProduction() {
 
     }
 
@@ -63,6 +66,14 @@ public class Movie {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
 

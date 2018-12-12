@@ -1,4 +1,4 @@
-import { GET_TVSHOWS, GET_TVSHOW } from "../actions/actionTypes";
+import { GET_TVSHOWS } from "../actions/ActionTypes";
 
 const initialState = {
   tvShows: [],
@@ -10,10 +10,6 @@ export default function(state = initialState, action) {
     case GET_TVSHOWS:
       return Object.assign({}, state, {
         tvShows: action.payload
-      });
-    case GET_TVSHOW:
-      return Object.assign({}, state, {
-        tvShow: action.payload
       });
     default:
       return state;

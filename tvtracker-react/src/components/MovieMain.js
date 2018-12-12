@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import MovieItem from "./MovieItem";
-import NewMovieButton from "./NewMovieButton";
+import VideoProdItem from "../components/videoProduction/VideoProdItem";
+import NewVideoProdButton from "./videoProduction/NewVideoProdButton";
 import { connect } from "react-redux";
-import { getMovies } from "../../actions/movieActions";
+import { getMovies } from "../actions/MovieActions";
 import PropTypes from "prop-types";
 
 class MovieMain extends Component {
@@ -14,17 +14,17 @@ class MovieMain extends Component {
     const { movies } = this.props.movie;
 
     return (
-      <div className="movies">
+      <div className="videoprod">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">Movies</h1>
               <br />
-              <NewMovieButton />
+              <NewVideoProdButton />
               <br />
               <hr />
-              {movies.map(movie => (
-                <MovieItem key={movie.id} movie={movie} />
+              {movies.map(videoProd => (
+                <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}
             </div>
           </div>
