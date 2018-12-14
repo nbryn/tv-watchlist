@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { deleteVideoProd } from "../../actions/VideoProdActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class VideoProdItem extends Component {
+  onDeleteClick = title => {
+    this.props.deleteVideoProd(title);
+  };
+
   render() {
     const { videoProd } = this.props;
     return (
@@ -13,13 +20,8 @@ class VideoProdItem extends Component {
               <h6>Title: {videoProd.title}</h6>
               <h6>Genre: {videoProd.genre}</h6>
               <h6>Rating: {videoProd.rating}</h6>
-              <h6>
-                {" "}
-                Description:
-                <br /> {videoProd.description}
-              </h6>
+              <h6>Description: {videoProd.description}</h6>
             </div>
-
             <div className="col-md-3 d-none d-lg-block">
               <ul className="list-group">
                 <Link to={`/updateVideoProd/${videoProd.title}`}>
@@ -27,11 +29,13 @@ class VideoProdItem extends Component {
                     <i className="fa fa-edit pr-1">Update Info</i>
                   </li>
                 </Link>
-                <a href="">
-                  <li className="list-group-item delete">
-                    <i className="fa fa-minus-circle pr-1">Delete</i>
-                  </li>
-                </a>
+
+                <li
+                  className="list-group-item delete"
+                  onClick={this.onDeleteClick.bind(this, videoProd.title)}
+                >
+                  <i className="fa fa-minus-circle pr-1">Delete</i>
+                </li>
               </ul>
             </div>
           </div>
@@ -41,4 +45,11 @@ class VideoProdItem extends Component {
   }
 }
 
-export default VideoProdItem;
+VideoProdItem.propTypes = {
+  deleteVideoProd: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { deleteVideoProd }
+)(VideoProdItem);

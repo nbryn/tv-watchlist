@@ -1,4 +1,8 @@
-import { GET_ALL, GET_VIDEOPROD } from "../actions/ActionTypes";
+import {
+  GET_ALL,
+  GET_VIDEOPROD,
+  DELETE_VIDEOPROD
+} from "../actions/ActionTypes";
 
 const initialState = {
   videoProds: [],
@@ -14,6 +18,12 @@ export default function(state = initialState, action) {
     case GET_VIDEOPROD:
       return Object.assign({}, state, {
         videoProd: action.payload
+      });
+    case DELETE_VIDEOPROD:
+      return Object.assign({}, state, {
+        videoProds: state.videoProds.filter(
+          videoProd => videoProd.title !== action.payload
+        )
       });
     default:
       return state;

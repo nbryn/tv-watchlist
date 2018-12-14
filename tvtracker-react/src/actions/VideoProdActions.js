@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_ERRORS, GET_ALL, GET_VIDEOPROD } from "./ActionTypes";
+import {
+  GET_ERRORS,
+  GET_ALL,
+  DELETE_VIDEOPROD,
+  GET_VIDEOPROD
+} from "./ActionTypes";
 
 export const newVideoProd = (videoProd, history) => async dispatch => {
   try {
@@ -15,6 +20,14 @@ export const newVideoProd = (videoProd, history) => async dispatch => {
       payload: err.response.data
     });
   }
+};
+
+export const deleteVideoProd = title => async dispatch => {
+  await axios.delete(`http://localhost:8080/video/${title}`);
+  dispatch({
+    type: DELETE_VIDEOPROD,
+    payload: title
+  });
 };
 
 export const getVideoProd = (id, history) => async dispatch => {
