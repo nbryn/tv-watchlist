@@ -50,22 +50,22 @@ public class VideoProductionService {
     public List<VideoProduction> findAllMovies() {
         List<VideoProduction> all = videoProductionRepository.findAll();
 
-        List<VideoProduction> videoProductions = all.stream()
+        List<VideoProduction> movies = all.stream()
                 .filter(m -> m.getType().toUpperCase().equals("MOVIE"))
                 .collect(Collectors.toList());
 
-        return videoProductions;
+        return movies;
 
     }
 
     public List<VideoProduction> findAllTvShows() {
         List<VideoProduction> all = videoProductionRepository.findAll();
 
-        List<VideoProduction> tvVideoProductions = all.stream()
+        List<VideoProduction> tvShows = all.stream()
                 .filter(m -> m.getType().toUpperCase().equals("TVSHOW"))
                 .collect(Collectors.toList());
 
-        return tvVideoProductions;
+        return tvShows;
 
     }
 

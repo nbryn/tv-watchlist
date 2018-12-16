@@ -10,11 +10,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @RestController
-public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandler {
+public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler
-    public final ResponseEntity<Object> handleMovieTitleException(TitleException ex, WebRequest request) {
+    public final ResponseEntity<Object> handleTitleException(TitleException ex, WebRequest request) {
         TitleResponse response = new TitleResponse(ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleUsernameException(UsernameException ex, WebRequest request) {
+        UsernameResponse response = new UsernameResponse((ex.getMessage()));
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

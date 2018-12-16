@@ -8,11 +8,11 @@ public class TitleResponse {
         this.title = title;
     }
 
-    public String getMovieTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setMovieTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 }
