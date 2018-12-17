@@ -24,7 +24,7 @@ class SeriesMain extends Component {
               <br />
               <hr />
               {series.map(videoProd => (
-                <VideoProdItem key={videoProd.id} videoProd={videoProd} />
+                <VideoProdItem key={videoProd.rating} videoProd={videoProd} />
               ))}
             </div>
           </div>

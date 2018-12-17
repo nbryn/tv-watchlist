@@ -23,6 +23,7 @@ public class UserService {
 
             user.setUsername(user.getUsername());
 
+            user.setConfirmPassword("");
             return userRepository.save(user);
 
         } catch (Exception e) {
