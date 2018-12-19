@@ -58,11 +58,11 @@ img {
 }
 
 .form-control::placeholder {
-  color: rgb(247, 9, 9) !important;
+  color: rgb(248, 43, 7) !important;
 }
 
 .btn-primary::placeholder {
-  color: rgb(230, 15, 15) !important;
+  color: rgb(23, 37, 233) !important;
 }
 
 .row {

@@ -12,6 +12,7 @@ class MovieMain extends Component {
 
   render() {
     const { movies } = this.props.movie;
+    const buttonText = "Add Movie";
 
     return (
       <div className="videoprod">
@@ -20,7 +21,7 @@ class MovieMain extends Component {
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">Movies</h1>
               <br />
-              <NewVideoProdButton />
+              <NewVideoProdButton text={buttonText} />
               <br />
               <hr />
               {movies.map(videoProd => (

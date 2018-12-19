@@ -12,6 +12,7 @@ class Main extends Component {
 
   render() {
     const { videoProds } = this.props.videoProd;
+    const buttonText = "Add Item";
 
     return (
       <div className="videoprod">
@@ -20,7 +21,7 @@ class Main extends Component {
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">All</h1>
               <br />
-              <NewVideoProdButton />
+              <NewVideoProdButton text={buttonText} />
               <br />
               <hr />
               {videoProds.map(videoProd => (

@@ -12,6 +12,7 @@ class SeriesMain extends Component {
 
   render() {
     const { series } = this.props.series;
+    const buttonText = "Add Series";
 
     return (
       <div className="videoprod">
@@ -20,7 +21,7 @@ class SeriesMain extends Component {
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">Series</h1>
               <br />
-              <NewVideoProdButton />
+              <NewVideoProdButton text={buttonText} />
               <br />
               <hr />
               {series.map(videoProd => (

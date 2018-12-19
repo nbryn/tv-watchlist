@@ -12,6 +12,7 @@ class TvShowMain extends Component {
 
   render() {
     const { tvShows } = this.props.tvShow;
+    const buttonText = "Add Tv-Show";
 
     return (
       <div className="videoprod">
@@ -20,7 +21,7 @@ class TvShowMain extends Component {
             <div className="col-md-12">
               <h1 className="diplay-4 text-center">Tv-Shows</h1>
               <br />
-              <NewVideoProdButton />
+              <NewVideoProdButton text={buttonText} />
               <br />
               <hr />
               {tvShows.map(videoProd => (

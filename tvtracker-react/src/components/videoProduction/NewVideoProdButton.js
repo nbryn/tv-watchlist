@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const NewVideoProdButton = () => {
+const NewVideoProdButton = props => {
   return (
     <React.Fragment>
       <Link to="/addVideoProd" className="btn btn-lg btn-info">
-        Add item
+        {props.text}
       </Link>
     </React.Fragment>
   );
