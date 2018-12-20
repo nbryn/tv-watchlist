@@ -7,8 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User implements UserDetails {
@@ -32,6 +34,9 @@ public class User implements UserDetails {
 
     private Date created_At;
     private Date updated_At;
+
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
+    private List<VideoProduction> videoProds = new ArrayList<>();
 
 
     public User() {
@@ -107,6 +112,14 @@ public class User implements UserDetails {
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
+    }
+
+    public List<VideoProduction> getVideoProds() {
+        return videoProds;
+    }
+
+    public void setVideoProds(List<VideoProduction> videoProds) {
+        this.videoProds = videoProds;
     }
 
     @Override

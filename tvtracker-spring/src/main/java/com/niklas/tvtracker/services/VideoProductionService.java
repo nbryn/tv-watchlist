@@ -1,7 +1,9 @@
 package com.niklas.tvtracker.services;
 
+import com.niklas.tvtracker.domain.User;
 import com.niklas.tvtracker.domain.VideoProduction;
 import com.niklas.tvtracker.exceptions.TitleException;
+import com.niklas.tvtracker.repositories.UserRepository;
 import com.niklas.tvtracker.repositories.VideoProductionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,16 @@ public class VideoProductionService {
     @Autowired
     private VideoProductionRepository videoProductionRepository;
 
-    public VideoProduction saveVideoProduction(VideoProduction videoProduction) {
+    @Autowired
+    private UserRepository userRepository;
+
+    public VideoProduction saveVideoProduction(VideoProduction videoProduction, String username) {
         try {
+
+            User user = userRepository.findByUsername(username);
+            videoProduction.setUser(user);
+            videoProduction.setTitle(videoProduction.getTitle().toUpperCase());
+
             videoProduction.setTitle(videoProduction.getTitle().toUpperCase());
             return videoProductionRepository.save(videoProduction);
         } catch (Exception e) {

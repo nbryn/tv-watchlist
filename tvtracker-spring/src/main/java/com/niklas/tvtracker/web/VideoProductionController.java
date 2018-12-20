@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,12 +24,12 @@ public class VideoProductionController {
     @Autowired private ErrorService errorService;
 
     @PostMapping("")
-    public ResponseEntity<?> newVideoProduction(@Valid @RequestBody VideoProduction videoProduction, BindingResult result) {
+    public ResponseEntity<?> newVideoProduction(@Valid @RequestBody VideoProduction videoProduction, BindingResult result, Principal principal) {
 
         ResponseEntity<?> errorMap = errorService.validationService(result);
         if(errorMap != null) return errorMap;
 
-        VideoProduction videoProduction1 = videoProductionService.saveVideoProduction(videoProduction);
+        VideoProduction videoProduction1 = videoProductionService.saveVideoProduction(videoProduction, principal.getName());
         return new ResponseEntity<VideoProduction>(videoProduction1, HttpStatus.CREATED);
     }
 

@@ -8,6 +8,4 @@ public class SecurityCockpit {
     public static final String TOKEN = "Bearer ";
     public static final String HEADER = "Authorization";
     public static final long EXPIRATION_TIME = 30_000;
-
-
 }
