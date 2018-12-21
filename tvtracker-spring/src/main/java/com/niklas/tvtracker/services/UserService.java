@@ -20,16 +20,12 @@ public class UserService {
 
         try {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-
             user.setUsername(user.getUsername());
-
             user.setConfirmPassword("");
-            return userRepository.save(user);
 
+            return userRepository.save(user);
         } catch (Exception e) {
             throw new UsernameException("Username '"+user.getUsername()+"' already exists");
-
         }
-
     }
 }

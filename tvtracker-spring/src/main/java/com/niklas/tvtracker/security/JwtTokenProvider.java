@@ -11,6 +11,7 @@ import java.util.Map;
 
 import static com.niklas.tvtracker.security.SecurityCockpit.EXPIRATION_TIME;
 import static com.niklas.tvtracker.security.SecurityCockpit.SECRET;
+import static io.jsonwebtoken.Jwts.parser;
 
 @Component
 public class JwtTokenProvider {
@@ -39,7 +40,7 @@ public class JwtTokenProvider {
 
     public boolean validateToken(String token) {
         try{
-            Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token);
+            parser().setSigningKey(SECRET).parseClaimsJws(token);
             return true;
         }catch (SignatureException ex) {
             System.out.println("Invalid JWT Signature");

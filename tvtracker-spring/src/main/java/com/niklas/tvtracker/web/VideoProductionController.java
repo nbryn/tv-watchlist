@@ -34,42 +34,42 @@ public class VideoProductionController {
     }
 
     @GetMapping("/{title}")
-    public ResponseEntity<?> getVideoProductionByTitle(@PathVariable String title) {
+    public ResponseEntity<?> getVideoProductionByTitle(@PathVariable String title, Principal principal) {
 
-        VideoProduction videoProduction = videoProductionService.findVideoProductionByTitle(title);
+        VideoProduction videoProduction = videoProductionService.findVideoProductionByTitle(title, principal.getName());
 
         return new ResponseEntity<VideoProduction>(videoProduction, HttpStatus.OK);
     }
 
     @GetMapping("/all")
-    public List<VideoProduction> getAll() {
+    public List<VideoProduction> getAll(Principal principal) {
 
-        return videoProductionService.findAll();
+        return videoProductionService.findAll(principal.getName());
     }
 
     @GetMapping("/series")
-    public List<VideoProduction> getAllSeries() {
+    public List<VideoProduction> getAllSeries(Principal principal) {
 
-        return videoProductionService.findAllSeries();
+        return videoProductionService.findAllSeries(principal.getName());
     }
 
     @GetMapping("/tvShow")
-    public List<VideoProduction> getAllTvShows() {
+    public List<VideoProduction> getAllTvShows(Principal principal) {
 
-        return videoProductionService.findAllTvShows();
+        return videoProductionService.findAllTvShows(principal.getName());
     }
 
     @GetMapping("/movie")
-    public List<VideoProduction> getAllMovies() {
+    public List<VideoProduction> getAllMovies(Principal principal) {
 
-        return videoProductionService.findAllMovies();
+        return videoProductionService.findAllMovies(principal.getName());
     }
 
     @DeleteMapping("/{title}")
-    public ResponseEntity<?> deleteVideoProduction(@PathVariable String title) {
-        videoProductionService.deleteMovieByTitle(title);
+    public ResponseEntity<?> deleteVideoProduction(@PathVariable String title, Principal principal) {
+        videoProductionService.deleteMovieByTitle(title, principal.getName());
 
-        return new ResponseEntity<String>("VideoProduction with title '"+title+"' was deleted", HttpStatus.OK);
+        return new ResponseEntity<String>("Item with title '"+title+"' was deleted", HttpStatus.OK);
     }
 
 

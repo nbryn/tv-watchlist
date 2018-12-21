@@ -26,8 +26,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Transactional
-    public Optional<User> getUserById(Long id) {
-        Optional<User> user = userRepository.findById(id);
+    public User getUserById(Long id) {
+        User user = userRepository.getById(id);
         if(user == null) throw new UsernameNotFoundException("User does not exist");
         return user;
     }

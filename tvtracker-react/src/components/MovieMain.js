@@ -25,7 +25,7 @@ class MovieMain extends Component {
               <br />
               <hr />
               {movies.map(videoProd => (
-                <VideoProdItem key={videoProd.rating} videoProd={videoProd} />
+                <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}
             </div>
           </div>

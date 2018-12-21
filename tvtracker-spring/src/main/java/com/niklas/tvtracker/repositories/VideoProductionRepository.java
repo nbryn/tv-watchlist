@@ -14,4 +14,6 @@ public interface VideoProductionRepository extends JpaRepository<VideoProduction
     @Override
     List<VideoProduction> findAll();
 
+    List<VideoProduction> findAllByVideoProductionLeader(String username);
+
 }

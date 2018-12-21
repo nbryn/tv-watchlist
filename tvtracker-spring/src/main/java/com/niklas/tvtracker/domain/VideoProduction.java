@@ -28,6 +28,8 @@ public class VideoProduction {
     @JsonIgnore
     private User user;
 
+    private String videoProductionLeader;
+
 
     public VideoProduction() {
 
@@ -87,6 +89,14 @@ public class VideoProduction {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getVideoProductionLeader() {
+        return videoProductionLeader;
+    }
+
+    public void setVideoProductionLeader(String videoProductionLeader) {
+        this.videoProductionLeader = videoProductionLeader;
     }
 }
 
