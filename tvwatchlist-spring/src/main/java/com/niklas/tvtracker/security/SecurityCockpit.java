@@ -7,5 +7,5 @@ public class SecurityCockpit {
     public static final String SECRET = "KeyToGenerateJWTs";
     public static final String TOKEN = "Bearer ";
     public static final String HEADER = "Authorization";
-    public static final long EXPIRATION_TIME = 1000_000;
+    public static final long EXPIRATION_TIME = 10000_000;
 }

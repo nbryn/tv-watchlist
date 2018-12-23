@@ -1,7 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 class Landing extends Component {
+  componentDidMount() {
+    if (this.props.user.validToken) {
+      this.props.history.push("/main");
+    }
+  }
+
   render() {
     return (
       <div className="landing">
@@ -9,6 +17,10 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
+                <br />
+                <br />
+                <br />
+                <br />
                 <h1 className="display-4 mb-4">Personal TV Watchlist</h1>
                 <p className="lead">
                   Create an account to start adding Movies, Series and TV-Shows
@@ -30,4 +42,12 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+Landing.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Landing);

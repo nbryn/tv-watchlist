@@ -11,5 +11,6 @@ export default combineReducers({
   videoProd: VideoProdReducer,
   movie: MovieReducer,
   series: SeriesReducer,
-  tvShow: TvShowReducer
+  tvShow: TvShowReducer,
+  user: UserReducer
 });

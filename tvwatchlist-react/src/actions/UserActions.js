@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_ERRORS, SET_USER } from "./ActionTypes";
 import jwt_decode from "jwt-decode";
-import { setToken } from "../security/SetToken";
+import setToken from "../token/setToken";
 
 export const newUser = (user, history) => async dispatch => {
   try {
@@ -45,4 +45,13 @@ export const signIn = SignInRequest => async dispatch => {
       payload: error.response.data
     });
   }
+};
+
+export const signOut = () => dispatch => {
+  localStorage.removeItem("jwtToken");
+  setToken(false);
+  dispatch({
+    type: SET_USER,
+    payload: {}
+  });
 };

@@ -1,8 +1,73 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { signOut } from "../../actions/UserActions";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
+  signOut() {
+    this.props.signOut();
+    window.location.href = "/";
+  }
+
   render() {
+    const { validToken, user } = this.props.user;
+
+    const isAuthenticated = (
+      <div className="collapse navbar-collapse" id="mobile-nav">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/main">
+              Main
+            </Link>
+          </li>
+        </ul>
+
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/main">
+              <i className="fas.fa-user-circle mr1" />
+              {user.fullName}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className="nav-link"
+              to="/signout"
+              onClick={this.signOut.bind(this)}
+            >
+              Sign Out
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
+    const notAuthenticated = (
+      <div className="collapse navbar-collapse" id="mobile-nav">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/signup">
+              <i className="fas.fa-user-circle mr1" />
+              Sign Up
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/signin">
+              Sign In
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
+
+    let headerLinks;
+
+    if (validToken && user) {
+      headerLinks = isAuthenticated;
+    } else {
+      headerLinks = notAuthenticated;
+    }
+
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
@@ -17,33 +82,22 @@ class Header extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/main">
-                  Main
-                </Link>
-              </li>
-            </ul>
-
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/signup">
-                  Sign Up
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
       </nav>
     );
   }
 }
 
-export default Header;
+Header.PropTypes = {
+  signOut: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(
+  mapStateToProps,
+  { signOut }
+)(Header);

@@ -18,9 +18,20 @@ class SignIn extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.user.validToken) {
+      this.props.history.push("/main");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
+    if (nextProps.user.validToken) {
+      this.props.history.push("/main");
       this.setState({ errors: nextProps.errors });
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.state });
     }
   }
 
@@ -50,12 +61,14 @@ class SignIn extends Component {
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
-                    type="email"
+                    type="text"
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.username
                     })}
                     placeholder="Email"
-                    name="email"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.onChange}
                   />
                   {errors.username && (
                     <div className="invalid-feedback">{errors.username}</div>
@@ -63,12 +76,14 @@ class SignIn extends Component {
                 </div>
                 <div className="form-group">
                   <input
-                    type="password"
+                    type="text"
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password
                     })}
                     placeholder="Password"
                     name="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
                   />
                   {errors.password && (
                     <div className="invalid-feedback">{errors.password}</div>
@@ -86,10 +101,12 @@ class SignIn extends Component {
 
 SignIn.propTypes = {
   signIn: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  user: state.user,
   errors: state.errors
 });
 
