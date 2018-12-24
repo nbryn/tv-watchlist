@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
 import { newUser } from "../../actions/UserActions";
 
 class SignUp extends Component {
@@ -53,81 +56,61 @@ class SignUp extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+      <div className="Sign">
+        <MuiThemeProvider>
+          <form onSubmit={this.onSubmit}>
+            <div>
+              <h3> Sign Up </h3>
+
+              <TextField
+                type="text"
+                hintText="Enter your full name"
+                floatingLabelText="Full name"
+                value={this.state.fullName}
+                onChange={this.onChange}
+              />
+              {errors.fullName && (
+                <div className="invalid-feedback">{errors.fullName}</div>
+              )}
               <br />
-              <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.fullName
-                    })}
-                    placeholder="Full Name"
-                    name="fullName"
-                    value={this.state.fullName}
-                    onChange={this.onChange}
-                    required
-                  />
-                  {errors.fullName && (
-                    <div className="invalid-feedback">{errors.fullName}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.fullName
-                    })}
-                    placeholder="Email"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.onChange}
-                  />
-                  {errors.username && (
-                    <div className="invalid-feedback">{errors.username}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="password"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.password
-                    })}
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                  />
-                  {errors.password && (
-                    <div className="invalid-feedback">{errors.password}</div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="password"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.verifyPassword
-                    })}
-                    placeholder="Verify Password"
-                    name="verifyPassword"
-                    value={this.state.verifyPassword}
-                    onChange={this.onChange}
-                  />
-                  {errors.password && (
-                    <div className="invalid-feedback">
-                      {errors.verifyPassword}
-                    </div>
-                  )}
-                </div>
-                <input type="submit" className="btn btn-info btn-block mt-4" />
-              </form>
+              <TextField
+                hintText="Enter your email"
+                floatingLabelText="Email"
+                value={this.state.username}
+                onChange={this.onChange}
+              />
+              {errors.username && (
+                <div className="invalid-feedback">{errors.username}</div>
+              )}
+              <br />
+              <TextField
+                hintText="Enter your password"
+                type="password"
+                floatingLabelText="Password"
+                value={this.state.password}
+                onChange={this.onChange}
+              />
+              {errors.password && (
+                <div className="invalid-feedback">{errors.password}</div>
+              )}
+              <br />
+              <TextField
+                hintText="Verify your password"
+                type="password"
+                floatingLabelText="Verify Password"
+                value={this.state.verifyPassword}
+                onChange={this.onChange}
+              />
+              {errors.password && (
+                <div className="invalid-feedback">{errors.password}</div>
+              )}
+
+              <br />
+              <br />
+              <input type="submit" className="btn btn-secondary" />
             </div>
-          </div>
-        </div>
+          </form>
+        </MuiThemeProvider>
       </div>
     );
   }

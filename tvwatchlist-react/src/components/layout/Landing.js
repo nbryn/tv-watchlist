@@ -27,10 +27,16 @@ class Landing extends Component {
                   to your own watchlist
                 </p>
                 <hr />
-                <Link className="btn btn-lg btn-primary mr-2" to="/signup">
+                <Link
+                  className="btn btn-primary btn-lg mr-1 mb-10"
+                  to="/signup"
+                >
                   Sign Up
                 </Link>
-                <Link className="btn btn-lg btn-secondary mr-2" to="/signin">
+                <Link
+                  className="btn btn-primary btn-lg mr-1 mb-10"
+                  to="/signin"
+                >
                   Sign In
                 </Link>
               </div>

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { signOut } from "../../actions/UserActions";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { signOut } from "../../actions/UserActions";
 
 class Header extends Component {
-  signOut() {
+  logout() {
     this.props.signOut();
     window.location.href = "/";
   }
-
   render() {
     const { validToken, user } = this.props.user;
 
@@ -26,28 +25,24 @@ class Header extends Component {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/main">
-              <i className="fas.fa-user-circle mr1" />
+              <i className="fas fa-user-circle mr-1" />
               {user.fullName}
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              className="nav-link"
-              to="/signout"
-              onClick={this.signOut.bind(this)}
-            >
+            <Link className="nav-link" to="/signout">
               Sign Out
             </Link>
           </li>
         </ul>
       </div>
     );
+
     const notAuthenticated = (
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/signup">
-              <i className="fas.fa-user-circle mr1" />
               Sign Up
             </Link>
           </li>
@@ -72,7 +67,7 @@ class Header extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            TV Watchlist
+            Personal TV Watchlist
           </Link>
           <button
             className="navbar-toggler"
@@ -82,13 +77,14 @@ class Header extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
+          {headerLinks}
         </div>
       </nav>
     );
   }
 }
 
-Header.PropTypes = {
+Header.propTypes = {
   signOut: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };

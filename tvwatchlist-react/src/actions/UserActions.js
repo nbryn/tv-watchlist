@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_ERRORS, SET_USER } from "./ActionTypes";
 import jwt_decode from "jwt-decode";
-import setToken from "../token/setToken";
+import setToken from "../security/setToken";
 
 export const newUser = (user, history) => async dispatch => {
   try {

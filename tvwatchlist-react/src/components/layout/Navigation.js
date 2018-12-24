@@ -13,9 +13,7 @@ class Navigation extends Component {
   };
 
   render() {
-    const { validToken, user } = this.props.user;
-
-    const isAuthenticated = (
+    return (
       <SideNav
         selectedPath={this.state.selectedPath}
         onItemSelection={this.onItemSelection}
@@ -31,18 +29,10 @@ class Navigation extends Component {
         </Nav>
       </SideNav>
     );
-
-    let navLinks;
-
-    if (validToken && user) {
-      navLinks = isAuthenticated;
-    }
-
-    return <SideNav />;
   }
 }
 
-Navigation.PropTypes = {
+Navigation.propTypes = {
   user: PropTypes.object.isRequired
 };
 
