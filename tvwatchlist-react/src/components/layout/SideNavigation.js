@@ -5,7 +5,7 @@ import "./navigation.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-class Navigation extends Component {
+class SideNavigation extends Component {
   state = { selectedPath: "" };
 
   onItemSelection = arg => {
@@ -13,7 +13,9 @@ class Navigation extends Component {
   };
 
   render() {
-    return (
+    const { validToken, user } = this.props.user;
+
+    const isAuthenticated = (
       <SideNav
         selectedPath={this.state.selectedPath}
         onItemSelection={this.onItemSelection}
@@ -29,10 +31,34 @@ class Navigation extends Component {
         </Nav>
       </SideNav>
     );
+
+    const notAuthenticated = (
+      <SideNav
+        selectedPath={this.state.selectedPath}
+        onItemSelection={this.onItemSelection}
+      />
+    );
+
+    let sideNavLinks;
+
+    if (validToken && user) {
+      sideNavLinks = isAuthenticated;
+    } else {
+      sideNavLinks = notAuthenticated;
+    }
+
+    return (
+      <SideNav
+        selectedPath={this.state.selectedPath}
+        onItemSelection={this.onItemSelection}
+      >
+        {sideNavLinks}
+      </SideNav>
+    );
   }
 }
 
-Navigation.propTypes = {
+SideNavigation.propTypes = {
   user: PropTypes.object.isRequired
 };
 
@@ -40,4 +66,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(mapStateToProps)(SideNavigation);

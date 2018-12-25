@@ -1,8 +1,8 @@
 import { SET_USER } from "../actions/ActionTypes";
 
 const initialState = {
-  user: {},
-  validToken: false
+  validToken: false,
+  user: {}
 };
 
 const payload = payload => {

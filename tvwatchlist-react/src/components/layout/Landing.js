@@ -12,38 +12,32 @@ class Landing extends Component {
 
   render() {
     return (
-      <div className="landing">
-        <div className="light-overlay landing-inner text-dark">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <br />
-                <br />
-                <br />
-                <br />
-                <h1 className="display-4 mb-4">Personal TV Watchlist</h1>
-                <p className="lead">
-                  Create an account to start adding Movies, Series and TV-Shows
-                  to your own watchlist
-                </p>
-                <hr />
-                <Link
-                  className="btn btn-primary btn-lg mr-1 mb-10"
-                  to="/signup"
-                >
-                  Sign Up
-                </Link>
-                <Link
-                  className="btn btn-primary btn-lg mr-1 mb-10"
-                  to="/signin"
-                >
-                  Sign In
-                </Link>
-              </div>
+      <header>
+        <div className="nbryn">
+          <div className="container d-flex h-900 align-items-center">
+            <div className="mx-auto text-center">
+              <h1 className="mx-auto my-0 text-uppercase">TV-Watchlist</h1>
+              <h2 className="text-white-50 mx-auto mt-2 mb-5">
+                A free app where you can track Movies, Series and TV-Shows
+              </h2>
+
+              <Link className="btn btn btn-lg btn-secondary" to="/signup">
+                Sign up
+              </Link>
+
+              <Link className="btn btn btn-lg btn-default" to="/signin">
+                Sign in
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+
+        <footer className="bg-black small text-center text-white-50">
+          <div className="container">
+            Copyright &copy; Niklas Brynfeldt 2018
+          </div>
+        </footer>
+      </header>
     );
   }
 }

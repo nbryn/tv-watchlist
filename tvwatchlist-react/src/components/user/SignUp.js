@@ -58,12 +58,16 @@ class SignUp extends Component {
     return (
       <div className="Sign">
         <MuiThemeProvider>
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit} autocomplete="off">
             <div>
               <h3> Sign Up </h3>
 
               <TextField
                 type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.fullName
+                })}
+                name="fullName"
                 hintText="Enter your full name"
                 floatingLabelText="Full name"
                 value={this.state.fullName}
@@ -74,6 +78,11 @@ class SignUp extends Component {
               )}
               <br />
               <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.username
+                })}
+                name="username"
                 hintText="Enter your email"
                 floatingLabelText="Email"
                 value={this.state.username}
@@ -84,6 +93,11 @@ class SignUp extends Component {
               )}
               <br />
               <TextField
+                type="password"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.password
+                })}
+                name="password"
                 hintText="Enter your password"
                 type="password"
                 floatingLabelText="Password"
@@ -95,6 +109,11 @@ class SignUp extends Component {
               )}
               <br />
               <TextField
+                type="password"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.confirmPassword
+                })}
+                name="verifyPassword"
                 hintText="Verify your password"
                 type="password"
                 floatingLabelText="Verify Password"
@@ -107,7 +126,11 @@ class SignUp extends Component {
 
               <br />
               <br />
-              <input type="submit" className="btn btn-secondary" />
+              <input
+                type="submit"
+                className="btn btn-secondary"
+                value="Submit"
+              />
             </div>
           </form>
         </MuiThemeProvider>

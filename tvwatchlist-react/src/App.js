@@ -15,9 +15,9 @@ import SecureRoute from "./security/SecureRoute";
 import SignUp from "./components/user/SignUp";
 import SignIn from "./components/user/SignIn";
 import { signOut } from "./actions/UserActions";
-import Header from "./components/layout/Header";
+import TopNavigation from "./components/layout/TopNavigation";
 import Landing from "./components/layout/Landing";
-import Navigation from "./components/layout/Navigation";
+import SideNavigation from "./components/layout/SideNavigation";
 import AddVideoProd from "./components/videoProduction/AddVideoProd";
 import UpdateVideoProd from "./components/videoProduction/UpdateVideoProd";
 
@@ -44,8 +44,8 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Header />
-            <Navigation />
+            <TopNavigation />
+            <SideNavigation />
 
             <Route exact path="/" component={Landing} />
             <Route exact path="/signup" component={SignUp} />

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { getVideoProd, newVideoProd } from "../../actions/VideoProdActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import TextField from "material-ui/TextField";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import classnames from "classnames";
 
 class UpdateVideoProd extends Component {
@@ -65,79 +67,125 @@ class UpdateVideoProd extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="movie">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-7 m-auto">
-              <h5 className="display-4 text-center">Edit Info</h5>
-              <hr />
-              <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control form-control-lg "
-                    placeholder="Title"
-                    name="title"
-                    value={this.state.title}
-                    disabled
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.genre
-                    })}
-                    placeholder="Genre"
-                    name="genre"
-                    value={this.state.genre}
-                    onChange={this.onChange}
-                  />
-                  {errors.genre && (
-                    <div className="invalid-feedback">{errors.genre}</div>
-                  )}
-                </div>
+      <div className="Sign">
+        <MuiThemeProvider>
+          <form onSubmit={this.onSubmit} autocomplete="off">
+            <div>
+              <h3> Edit info </h3>
+              <TextField
+                type="text"
+                name="title"
+                hintText="Enter title"
+                floatingLabelText="Title"
+                value={this.state.title}
+                disabled
+              />
 
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.rating
-                    })}
-                    placeholder="Rating"
-                    name="rating"
-                    value={this.state.rating}
-                    onChange={this.onChange}
-                  />
-                  {errors.rating && (
-                    <div className="invalid-feedback">{errors.rating}</div>
-                  )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.genre
+                })}
+                name="genre"
+                hintText="Enter genre"
+                floatingLabelText="Genre"
+                value={this.state.genre}
+                onChange={this.onChange}
+              />
+              {errors.genre && (
+                <div className="invalid-feedback">{errors.genre}</div>
+              )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.rating
+                })}
+                name="rating"
+                hintText="Enter E.g. IMDB rating"
+                floatingLabelText="Rating"
+                value={this.state.rating}
+                onChange={this.onChange}
+              />
+              {errors.rating && (
+                <div className="invalid-feedback">{errors.rating}</div>
+              )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.description
+                })}
+                name="description"
+                hintText="Enter your own custom description"
+                floatingLabelText="Description"
+                value={this.state.description}
+                onChange={this.onChange}
+              />
+              {errors.description && (
+                <div className="invalid-feedback">{errors.description}</div>
+              )}
+              <br />
+              <br />
+              <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                <div className="first">
+                  <label className="btn btn">
+                    <input
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type1"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"movie"}
+                      onChange={this.onChange}
+                    />{" "}
+                    Movie
+                  </label>
                 </div>
-
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.description
-                    })}
-                    placeholder="Description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                  />
-                  {errors.description && (
-                    <div className="invalid-feedback">{errors.description}</div>
-                  )}
+                <div className="second">
+                  <label className="btn btn">
+                    <input
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type2"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"series"}
+                      onChange={this.onChange}
+                    />{" "}
+                    Series
+                  </label>
                 </div>
-
-                <input
-                  type="submit"
-                  className="btn btn-primary btn-block mt-4"
-                />
-              </form>
+                <div className="third">
+                  <label className="btn btn">
+                    <input
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type3"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"tvshow"}
+                      onChange={this.onChange}
+                    />{" "}
+                    <br />
+                    TV-Show
+                  </label>
+                </div>
+              </div>
+              <br />
+              <br />
+              <input
+                type="submit"
+                className="btn btn-secondary"
+                value="Submit"
+              />
             </div>
-          </div>
-        </div>
+          </form>
+        </MuiThemeProvider>
       </div>
     );
   }
@@ -151,7 +199,7 @@ UpdateVideoProd.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  movie: state.videoProd.videoProd,
+  videoProd: state.videoProd.videoProd,
   errors: state.errors
 });
 

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { signOut } from "../../actions/UserActions";
+import { connect } from "react-redux";
 
-class Header extends Component {
-  logout() {
+class TopNavigation extends Component {
+  signOut() {
     this.props.signOut();
     window.location.href = "/";
   }
@@ -30,8 +30,12 @@ class Header extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/signout">
-              Sign Out
+            <Link
+              className="nav-link"
+              to="/signout"
+              onClick={this.signOut.bind(this)}
+            >
+              Sign out
             </Link>
           </li>
         </ul>
@@ -43,24 +47,24 @@ class Header extends Component {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/signup">
-              Sign Up
+              Sign up
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/signin">
-              Sign In
+              Sign in
             </Link>
           </li>
         </ul>
       </div>
     );
 
-    let headerLinks;
+    let topNavLinks;
 
     if (validToken && user) {
-      headerLinks = isAuthenticated;
+      topNavLinks = isAuthenticated;
     } else {
-      headerLinks = notAuthenticated;
+      topNavLinks = notAuthenticated;
     }
 
     return (
@@ -77,14 +81,14 @@ class Header extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          {headerLinks}
+          {topNavLinks}
         </div>
       </nav>
     );
   }
 }
 
-Header.propTypes = {
+TopNavigation.propTypes = {
   signOut: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
@@ -96,4 +100,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { signOut }
-)(Header);
+)(TopNavigation);

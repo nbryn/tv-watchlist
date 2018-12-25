@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
+import classnames from "classnames";
 import { signIn } from "../../actions/UserActions";
 
 class SignIn extends Component {
@@ -28,42 +28,45 @@ class SignIn extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.validToken) {
-      this.setState({ errors: nextProps.errors });
+      this.props.history.push("/main");
     }
 
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.state });
+      this.setState({ errors: nextProps.errors });
     }
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const LoginRequest = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    this.props.signIn(LoginRequest);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-
-    const signIn = {
-      username: this.state.username,
-      password: this.state.password
-    };
-
-    this.props.signIn(signIn, this.props.history);
-  }
   render() {
     const { errors } = this.state;
-
     return (
       <div className="Sign">
         <MuiThemeProvider>
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit} autocomplete="off">
             <div>
               <h3> Sign In </h3>
 
               <TextField
                 type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.username
+                })}
                 hintText="Enter your username"
-                floatingLabelText="Verify Password"
+                floatingLabelText="Username"
+                name="username"
                 value={this.state.username}
                 onChange={this.onChange}
               />
@@ -73,8 +76,12 @@ class SignIn extends Component {
               <br />
               <TextField
                 type="password"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.password
+                })}
                 hintText="Enter your password"
-                floatingLabelText="Verify Password"
+                floatingLabelText="Password"
+                name="password"
                 value={this.state.password}
                 onChange={this.onChange}
               />
@@ -84,7 +91,11 @@ class SignIn extends Component {
               <br />
               <br />
 
-              <input type="submit" className="btn btn-secondary" />
+              <input
+                type="submit"
+                className="btn btn-secondary"
+                value="Submit"
+              />
             </div>
           </form>
         </MuiThemeProvider>

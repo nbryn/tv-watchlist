@@ -19,7 +19,7 @@ class TvShowMain extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="diplay-4 text-center">TV-Shows</h1>
+              <h2 className="diplay-4 text-center">TV-Shows</h2>
               <br />
               <NewVideoProdButton text={buttonText} />
               <br />

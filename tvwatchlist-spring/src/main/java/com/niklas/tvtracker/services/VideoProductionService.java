@@ -99,8 +99,11 @@ public class VideoProductionService {
     }
 
     public List<VideoProduction> findAll(String username) {
+        List<VideoProduction> all = videoProductionRepository.findAllByVideoProductionLeader(username);
 
-        return videoProductionRepository.findAllByVideoProductionLeader(username);
+        Collections.sort(all, (v1, v2) -> (int) (v1.getRating() - v2.getRating()));
+
+        return all;
     }
 
     public void deleteMovieByTitle(String title, String username) {

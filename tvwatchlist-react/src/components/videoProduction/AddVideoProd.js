@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import TextField from "material-ui/TextField";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import classnames from "classnames";
 import { newVideoProd } from "../../actions/VideoProdActions";
 
@@ -49,142 +51,130 @@ class AddVideoProd extends Component {
     const { errors } = this.state;
 
     return (
-      <div>
-        <div className="videoprod">
-          <div className="container">
-            <div className="row">
-              <div className="item">
-                <h5 className="display-4 text-center">Add Item</h5>
-                <hr />
-                <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
+      <div className="Sign">
+        <MuiThemeProvider>
+          <form onSubmit={this.onSubmit} autocomplete="off">
+            <div>
+              <h3> Add item </h3>
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.title
+                })}
+                name="title"
+                hintText="Enter title"
+                floatingLabelText="Title"
+                value={this.state.title}
+                onChange={this.onChange}
+              />
+              {errors.title && (
+                <div className="invalid-feedback">{errors.title}</div>
+              )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.genre
+                })}
+                name="genre"
+                hintText="Enter genre"
+                floatingLabelText="Genre"
+                value={this.state.genre}
+                onChange={this.onChange}
+              />
+              {errors.genre && (
+                <div className="invalid-feedback">{errors.genre}</div>
+              )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.rating
+                })}
+                name="rating"
+                hintText="Enter E.g. IMDB rating"
+                floatingLabelText="Rating"
+                value={this.state.rating}
+                onChange={this.onChange}
+              />
+              {errors.rating && (
+                <div className="invalid-feedback">{errors.rating}</div>
+              )}
+              <br />
+              <TextField
+                type="text"
+                className={classnames("form-control-file", {
+                  "is-invalid": errors.description
+                })}
+                name="description"
+                hintText="Enter custom description"
+                floatingLabelText="Description"
+                value={this.state.description}
+                onChange={this.onChange}
+              />
+              {errors.description && (
+                <div className="invalid-feedback">{errors.description}</div>
+              )}
+              <br />
+              <br />
+              <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                <div className="first">
+                  <label className="btn btn">
                     <input
-                      type="text"
-                      className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.title
-                      })}
-                      placeholder="Title"
-                      name="title"
-                      value={this.state.title}
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type1"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"movie"}
                       onChange={this.onChange}
-                    />
-                    {errors.title && (
-                      <div className="invalid-feedback">{errors.title}</div>
-                    )}
-                  </div>
-                  <div className="form-group">
+                    />{" "}
+                    Movie
+                  </label>
+                </div>
+                <div className="second">
+                  <label className="btn btn">
                     <input
-                      type="text"
-                      className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.genre
-                      })}
-                      placeholder="Genre"
-                      name="genre"
-                      value={this.state.genre}
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type2"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"series"}
                       onChange={this.onChange}
-                    />
-                    {errors.genre && (
-                      <div className="invalid-feedback">{errors.genre}</div>
-                    )}
-                  </div>
-                  <div className="form-group">
+                    />{" "}
+                    Series
+                  </label>
+                </div>
+                <div className="third">
+                  <label className="btn btn">
                     <input
-                      type="text"
-                      className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.rating
-                      })}
-                      placeholder="Rating"
-                      name="rating"
-                      value={this.state.rating}
+                      type="radio"
+                      placeholder="Type"
+                      name="type"
+                      id="type3"
+                      autoComplete="off"
+                      value={this.state.type}
+                      value={"tvshow"}
                       onChange={this.onChange}
-                    />
-                    {errors.rating && (
-                      <div className="invalid-feedback">{errors.rating}</div>
-                    )}
-                  </div>
-
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.description
-                      })}
-                      placeholder="Description"
-                      name="description"
-                      value={this.state.description}
-                      onChange={this.onChange}
-                    />
-                    {errors.description && (
-                      <div className="invalid-feedback">
-                        {errors.description}
-                      </div>
-                    )}
-                  </div>
-
-                  <div
-                    className="btn-group btn-group-toggle"
-                    data-toggle="buttons"
-                  >
-                    <div className="first">
-                      <label className="btn btn-primary">
-                        <input
-                          type="radio"
-                          placeholder="Type"
-                          name="type"
-                          id="type1"
-                          autoComplete="off"
-                          value={this.state.type}
-                          value={"movie"}
-                          onChange={this.onChange}
-                        />{" "}
-                        Movie
-                      </label>
-                    </div>
-                    <div className="second">
-                      <label className="btn btn-primary">
-                        <input
-                          type="radio"
-                          placeholder="Type"
-                          name="type"
-                          id="type2"
-                          autoComplete="off"
-                          value={this.state.type}
-                          value={"series"}
-                          onChange={this.onChange}
-                        />{" "}
-                        Series
-                      </label>
-                    </div>
-                    <div className="third">
-                      <label className="btn btn-primary">
-                        <input
-                          type="radio"
-                          placeholder="Type"
-                          name="type"
-                          id="type3"
-                          autoComplete="off"
-                          value={this.state.type}
-                          value={"tvshow"}
-                          onChange={this.onChange}
-                        />{" "}
-                        Tv-Show
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <input
-                      type="submit"
-                      className={classnames("btn btn-primary btn-block mt-4")}
-                      placeholder="OK"
-                      name="ok-button"
-                    />
-                  </div>
-                </form>
+                    />{" "}
+                    <br />
+                    TV-Show
+                  </label>
+                </div>
               </div>
+              <br />
+              <br />
+              <input
+                type="submit"
+                className="btn btn-secondary"
+                value="Submit"
+              />
             </div>
-          </div>
-        </div>
+          </form>
+        </MuiThemeProvider>
       </div>
     );
   }
