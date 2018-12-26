@@ -15,19 +15,17 @@ class Main extends Component {
     const buttonText = "Add Item";
 
     return (
-      <div className="videoprod">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="diplay-4 text-center">All</h1>
-              <br />
-              <NewVideoProdButton text={buttonText} />
-              <br />
-              <hr />
-              {videoProds.map(videoProd => (
-                <VideoProdItem key={videoProd.id} videoProd={videoProd} />
-              ))}
-            </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1 className="diplay-4 text-center">All</h1>
+            <br />
+            <NewVideoProdButton text={buttonText} />
+            <br />
+            <hr align="left" width="50%" />
+            {videoProds.map(videoProd => (
+              <VideoProdItem key={videoProd.id} videoProd={videoProd} />
+            ))}
           </div>
         </div>
       </div>

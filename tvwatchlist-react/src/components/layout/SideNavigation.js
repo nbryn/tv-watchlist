@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { SideNav, Nav } from "react-sidenav";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./navigation.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -16,20 +15,26 @@ class SideNavigation extends Component {
     const { validToken, user } = this.props.user;
 
     const isAuthenticated = (
-      <SideNav
-        selectedPath={this.state.selectedPath}
-        onItemSelection={this.onItemSelection}
-      >
-        <Nav id={"1"}>
-          <Link to="/movieMain">Movies</Link>
-        </Nav>
-        <Nav id={"2"}>
-          <Link to="/seriesMain">Series</Link>
-        </Nav>
-        <Nav id={"3"}>
-          <Link to="/tvShowMain">Tv-Shows</Link>
-        </Nav>
-      </SideNav>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a id="menu-toggle" href="#" class="navbar-toggle" />
+          </div>
+          <div id="sidebar-wrapper" class="sidebar-toggle">
+            <ul class="sidebar-nav">
+              <li>
+                <a href="#item1">Movies</a>
+              </li>
+              <li>
+                <a href="#item2">Series</a>
+              </li>
+              <li>
+                <a href="#item3">TV-Shows</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     );
 
     const notAuthenticated = (

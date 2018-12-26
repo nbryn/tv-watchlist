@@ -23,7 +23,7 @@ class SeriesMain extends Component {
               <br />
               <NewVideoProdButton text={buttonText} />
               <br />
-              <hr />
+              <hr align="left" width="50%" />
               {series.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

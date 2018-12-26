@@ -8,7 +8,10 @@ import {
 
 export const newVideoProd = (videoProd, history) => async dispatch => {
   try {
-    const res = await axios.post("http://localhost:8080/video", videoProd);
+    const res = await axios.post(
+      "https://tv-watchlist.herokuapp.com/video",
+      videoProd
+    );
     history.push("/main");
     dispatch({
       type: GET_ERRORS,
@@ -23,7 +26,7 @@ export const newVideoProd = (videoProd, history) => async dispatch => {
 };
 
 export const deleteVideoProd = title => async dispatch => {
-  await axios.delete(`http://localhost:8080/video/${title}`);
+  await axios.delete(`https://tv-watchlist.herokuapp.com/video/${title}`);
   dispatch({
     type: DELETE_VIDEOPROD,
     payload: title
@@ -32,7 +35,9 @@ export const deleteVideoProd = title => async dispatch => {
 
 export const getVideoProd = (id, history) => async dispatch => {
   try {
-    const res = await axios.get(`http://localhost:8080/video/${id}`);
+    const res = await axios.get(
+      `https://tv-watchlist.herokuapp.com/video/${id}`
+    );
     dispatch({
       type: GET_VIDEOPROD,
       payload: res.data
@@ -43,7 +48,7 @@ export const getVideoProd = (id, history) => async dispatch => {
 };
 
 export const getAll = () => async dispatch => {
-  const res = await axios.get("http://localhost:8080/video/all");
+  const res = await axios.get("https://tv-watchlist.herokuapp.com/video/all");
   dispatch({
     type: GET_ALL,
     payload: res.data

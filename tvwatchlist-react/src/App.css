@@ -8,25 +8,16 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   width: 100%;
 }
 
-.row {
-  top: 20;
-  left: 50;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  width: 80%;
-  height: 110px;
+.navbar {
+  background-color: #e3f2fd;
+}
+
+.bg-primary {
+  background-color: #007bff !important;
 }
 
 .fa.fa-edit {
   color: #580505;
-}
-
-.list-group {
-  margin-top: -1px;
-  margin-bottom: -10px;
-  line-height: 1;
-  width: 75%;
-  height: -10px;
 }
 
 .list-group-item.delete:hover {
@@ -66,6 +57,14 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   height: 100%;
 }
 
+.col-md-12 {
+  right: -510px;
+  width: 75%;
+  height: -10px;
+  top: 0;
+  left: -14px;
+}
+
 .card-form {
   opacity: 0.9;
 }
@@ -83,13 +82,31 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .col-md-2 {
-  margin-top: -10px;
+  margin-top: -20px;
   margin-bottom: -50px;
   line-height: 0.7;
-  left: -74px;
+  left: -70px;
   width: 20%;
   height: 10px;
   white-space: nowrap;
+}
+
+.nbru {
+  left: 130px;
+}
+
+.list-group-item.delete {
+  margin-top: 10px;
+  width: 125px;
+  height: 45px;
+  left: 100px;
+}
+
+.list-group-item.update {
+  margin-top: -1px;
+  width: 125px;
+  height: 45px;
+  left: 100px;
 }
 
 .first {
@@ -117,14 +134,10 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   left: 250px;
 }
 
-.col-md-12 {
-  margin-top: -130px;
-  left: 100px;
-}
-
 .card.card-body.bg-light.mb-3 {
-  width: 875px;
+  width: 635px;
   height: 100px;
+  left: -15px;
 }
 
 .btn-block.mt-4 {
@@ -237,59 +250,8 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   }
 }
 
-.btn {
-  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  padding: 1.25rem 2rem;
-  font-family: "Varela Round";
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  border: 0;
-}
-
-.btn-primary {
-  background-color: #64a19d;
-}
-
-.btn-primary:hover {
-  background-color: #4f837f;
-}
-
-.btn-primary:focus {
-  background-color: #4f837f;
-  color: white;
-}
-
-.btn-primary:active {
-  background-color: #467370 !important;
-}
-
-body {
-  font-family: "Nunito";
-  letter-spacing: 0.0625em;
-}
-
-a {
-  color: #64a19d;
-}
-
-a:focus,
-a:hover {
-  text-decoration: none;
-  color: #3c6360;
-}
-
 .bg-black {
   background-color: #161616 !important;
-}
-
-.bg-primary {
-  background-color: #64a19d !important;
-}
-
-.text-primary {
-  color: #64a19d !important;
 }
 
 footer.footer {
@@ -299,4 +261,64 @@ footer.footer {
 
 .mx-auto.text-center {
   margin-top: 125px;
+}
+
+.btn-group-lg > .btn,
+.btn-lg {
+  padding: 0.5rem 1rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1.5 !important;
+  border-radius: 0.3rem !important;
+}
+
+.chXdSi {
+  font-size: 20px;
+  color: #007bff !important;
+}
+
+#sidebar-wrapper {
+  top: 40px;
+  left: -200px;
+  width: 120px;
+  background-color: #007bff;
+  color: white;
+  position: fixed;
+  height: 20%;
+  z-index: 1;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  list-style: none;
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+}
+.sidebar-nav li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s ease-out;
+  margin-left: -200px;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+    left: 200px;
+  }
 }

@@ -23,7 +23,7 @@ class MovieMain extends Component {
               <br />
               <NewVideoProdButton text={buttonText} />
               <br />
-              <hr />
+              <hr align="left" width="50%" />
               {movies.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

@@ -23,7 +23,7 @@ class TvShowMain extends Component {
               <br />
               <NewVideoProdButton text={buttonText} />
               <br />
-              <hr />
+              <hr align="left" width="50%" />
               {tvShows.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

@@ -5,7 +5,7 @@ import setToken from "../security/setToken";
 
 export const newUser = (user, history) => async dispatch => {
   try {
-    await axios.post("http://localhost:8080/users/signup", user);
+    await axios.post("https://tv-watchlist.herokuapp.com/users/signup", user);
     history.push("/signin");
     dispatch({
       type: GET_ERRORS,
@@ -22,7 +22,7 @@ export const newUser = (user, history) => async dispatch => {
 export const signIn = SignInRequest => async dispatch => {
   try {
     const res = await axios.post(
-      "http://localhost:8080/users/signin",
+      "https://tv-watchlist.herokuapp.com/users/signin",
       SignInRequest
     );
     const { token } = res.data;

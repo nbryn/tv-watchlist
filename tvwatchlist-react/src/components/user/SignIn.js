@@ -64,7 +64,7 @@ class SignIn extends Component {
                 className={classnames("form-control-file", {
                   "is-invalid": errors.username
                 })}
-                hintText="Enter your username"
+                hintText="Enter your username(email)"
                 floatingLabelText="Username"
                 name="username"
                 value={this.state.username}
