@@ -14,7 +14,7 @@ class Landing extends Component {
     return (
       <header>
         <div className="nbryn">
-          <div className="container d-flex h-900 align-items-center">
+          <div className="container d-flex h-500 align-items-center">
             <div className="mx-auto text-center">
               <h1 className="mx-auto my-0 text-uppercase">TV-Watchlist</h1>
               <h2 className="text-white-50 mx-auto mt-2 mb-5">

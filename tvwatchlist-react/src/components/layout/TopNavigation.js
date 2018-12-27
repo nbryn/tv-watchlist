@@ -14,31 +14,49 @@ class TopNavigation extends Component {
 
     const isAuthenticated = (
       <div className="collapse navbar-collapse" id="mobile-nav">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/main">
-              Main
-            </Link>
-          </li>
-        </ul>
+        <div className="nav-wrapper">
+          <ul className="navbar-nav mr-auto" />
 
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/main">
-              <i className="fas fa-user-circle mr-1" />
-              {user.fullName}
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              className="nav-link"
-              to="/signout"
-              onClick={this.signOut.bind(this)}
-            >
-              Sign out
-            </Link>
-          </li>
-        </ul>
+          <ul className="navbar-nav ml-auto">
+            <div className="link1">
+              <li className="nav-item">
+                <Link className="nav-link" to="/movie">
+                  Movies
+                </Link>
+              </li>
+            </div>
+            <div className="link2">
+              <li className="nav-item">
+                <Link className="nav-link" to="/series">
+                  Series
+                </Link>
+              </li>
+            </div>
+            <div className="link3">
+              <li className="nav-item">
+                <Link className="nav-link" to="/tvShow">
+                  TV-Shows
+                </Link>
+              </li>
+            </div>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/main">
+                <i className="fas fa-user-circle mr-1" />
+                {user.fullName}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to="/signout"
+                onClick={this.signOut.bind(this)}
+              >
+                Sign out
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     );
 
@@ -71,7 +89,7 @@ class TopNavigation extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Personal TV Watchlist
+            TV-Watchlist
           </Link>
           <button
             className="navbar-toggler"

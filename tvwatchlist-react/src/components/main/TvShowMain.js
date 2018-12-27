@@ -19,11 +19,11 @@ class TvShowMain extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="diplay-4 text-center">TV-Shows</h2>
+              <h2 className="diplay-4">TV-Shows</h2>
               <br />
               <NewVideoProdButton text={buttonText} />
               <br />
-              <hr align="left" width="50%" />
+              <hr align="left" width="57%" />
               {tvShows.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

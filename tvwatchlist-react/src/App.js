@@ -58,9 +58,9 @@ class App extends Component {
                 path="/addVideoProd"
                 component={AddVideoProd}
               />
-              <SecureRoute exact path="/movieMain" component={MovieMain} />
-              <SecureRoute exact path="/seriesMain" component={SeriesMain} />
-              <SecureRoute exact path="/tvShowMain" component={TvShowMain} />
+              <SecureRoute exact path="/movie" component={MovieMain} />
+              <SecureRoute exact path="/series" component={SeriesMain} />
+              <SecureRoute exact path="/tvShow" component={TvShowMain} />
               <SecureRoute
                 exact
                 path="/updateVideoProd/:id"

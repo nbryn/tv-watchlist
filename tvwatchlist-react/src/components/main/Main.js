@@ -18,11 +18,11 @@ class Main extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="diplay-4 text-center">All</h1>
+            <h1 className="diplay-4 text-left">All</h1>
             <br />
             <NewVideoProdButton text={buttonText} />
             <br />
-            <hr align="left" width="50%" />
+            <hr align="left" width="57%" />
             {videoProds.map(videoProd => (
               <VideoProdItem key={videoProd.id} videoProd={videoProd} />
             ))}
