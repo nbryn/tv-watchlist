@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import classnames from "classnames";
+import { black } from "material-ui/styles/colors";
 
 class UpdateVideoProd extends Component {
   constructor() {
@@ -65,127 +66,141 @@ class UpdateVideoProd extends Component {
   }
   render() {
     const { errors } = this.state;
+    const styles = {
+      floatingLabelStyle: {
+        color: black
+      }
+    };
 
     return (
-      <div className="Sign">
-        <MuiThemeProvider>
-          <form onSubmit={this.onSubmit} autocomplete="off">
-            <div>
-              <h3> Edit info </h3>
-              <TextField
-                type="text"
-                name="title"
-                hintText="Enter title"
-                floatingLabelText="Title"
-                value={this.state.title}
-                disabled
-              />
+      <div className="background">
+        <div className="sign">
+          <MuiThemeProvider>
+            <form onSubmit={this.onSubmit} autoComplete="off">
+              <div>
+                <h3> Edit info </h3>
+                <TextField
+                  type="text"
+                  name="title"
+                  hintText="Enter title"
+                  floatingLabelText="Title"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.title}
+                  disabled
+                />
 
-              <br />
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.genre
-                })}
-                name="genre"
-                hintText="Enter genre"
-                floatingLabelText="Genre"
-                value={this.state.genre}
-                onChange={this.onChange}
-              />
-              {errors.genre && (
-                <div className="invalid-feedback">{errors.genre}</div>
-              )}
-              <br />
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.rating
-                })}
-                name="rating"
-                hintText="Enter E.g. IMDB rating"
-                floatingLabelText="Rating"
-                value={this.state.rating}
-                onChange={this.onChange}
-              />
-              {errors.rating && (
-                <div className="invalid-feedback">{errors.rating}</div>
-              )}
-              <br />
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.description
-                })}
-                name="description"
-                hintText="Enter your own custom description"
-                floatingLabelText="Description"
-                value={this.state.description}
-                onChange={this.onChange}
-              />
-              {errors.description && (
-                <div className="invalid-feedback">{errors.description}</div>
-              )}
-              <br />
-              <br />
-              <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                <div className="first">
-                  <label className="btn btn">
-                    <input
-                      type="radio"
-                      placeholder="Type"
-                      name="type"
-                      id="type1"
-                      autoComplete="off"
-                      value={this.state.type}
-                      value={"movie"}
-                      onChange={this.onChange}
-                    />{" "}
-                    Movie
-                  </label>
+                <br />
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.genre
+                  })}
+                  name="genre"
+                  hintText="Enter genre"
+                  floatingLabelText="Genre"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.genre}
+                  onChange={this.onChange}
+                />
+                {errors.genre && (
+                  <div className="invalid-feedback">{errors.genre}</div>
+                )}
+                <br />
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.rating
+                  })}
+                  name="rating"
+                  hintText="Enter E.g. IMDB rating"
+                  floatingLabelText="Rating"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.rating}
+                  onChange={this.onChange}
+                />
+                {errors.rating && (
+                  <div className="invalid-feedback">{errors.rating}</div>
+                )}
+                <br />
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.description
+                  })}
+                  name="description"
+                  hintText="Enter your own custom description"
+                  floatingLabelText="Description"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.description}
+                  onChange={this.onChange}
+                />
+                {errors.description && (
+                  <div className="invalid-feedback">{errors.description}</div>
+                )}
+                <br />
+                <br />
+                <div
+                  className="btn-group btn-group-toggle"
+                  data-toggle="buttons"
+                >
+                  <div className="first">
+                    <label className="btn btn">
+                      <input
+                        type="radio"
+                        placeholder="Type"
+                        name="type"
+                        id="type1"
+                        autoComplete="off"
+                        value={this.state.type}
+                        value={"movie"}
+                        onChange={this.onChange}
+                      />{" "}
+                      Movie
+                    </label>
+                  </div>
+                  <div className="second">
+                    <label className="btn btn">
+                      <input
+                        type="radio"
+                        placeholder="Type"
+                        name="type"
+                        id="type2"
+                        autoComplete="off"
+                        value={this.state.type}
+                        value={"series"}
+                        onChange={this.onChange}
+                      />{" "}
+                      Series
+                    </label>
+                  </div>
+                  <div className="third">
+                    <label className="btn btn">
+                      <input
+                        type="radio"
+                        placeholder="Type"
+                        name="type"
+                        id="type3"
+                        autoComplete="off"
+                        value={this.state.type}
+                        value={"tvshow"}
+                        onChange={this.onChange}
+                      />{" "}
+                      <br />
+                      TV-Show
+                    </label>
+                  </div>
                 </div>
-                <div className="second">
-                  <label className="btn btn">
-                    <input
-                      type="radio"
-                      placeholder="Type"
-                      name="type"
-                      id="type2"
-                      autoComplete="off"
-                      value={this.state.type}
-                      value={"series"}
-                      onChange={this.onChange}
-                    />{" "}
-                    Series
-                  </label>
-                </div>
-                <div className="third">
-                  <label className="btn btn">
-                    <input
-                      type="radio"
-                      placeholder="Type"
-                      name="type"
-                      id="type3"
-                      autoComplete="off"
-                      value={this.state.type}
-                      value={"tvshow"}
-                      onChange={this.onChange}
-                    />{" "}
-                    <br />
-                    TV-Show
-                  </label>
-                </div>
+                <br />
+                <br />
+                <input
+                  type="submit"
+                  className="btn btn-secondary"
+                  value="Submit"
+                />
               </div>
-              <br />
-              <br />
-              <input
-                type="submit"
-                className="btn btn-secondary"
-                value="Submit"
-              />
-            </div>
-          </form>
-        </MuiThemeProvider>
+            </form>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }

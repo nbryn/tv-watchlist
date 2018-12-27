@@ -15,7 +15,7 @@ class SeriesMain extends Component {
     const buttonText = "Add Series";
 
     return (
-      <div className="videoprod">
+      <div className="background">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

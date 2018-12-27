@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import { newUser } from "../../actions/UserActions";
+import { black } from "material-ui/styles/colors";
 
 class SignUp extends Component {
   constructor() {
@@ -54,86 +54,97 @@ class SignUp extends Component {
 
   render() {
     const { errors } = this.state;
+    const styles = {
+      floatingLabelStyle: {
+        color: black
+      }
+    };
 
     return (
-      <div className="Sign">
-        <MuiThemeProvider>
-          <form onSubmit={this.onSubmit} autocomplete="off">
-            <div>
-              <h3> Sign Up </h3>
+      <div className="background">
+        <div className="sign">
+          <MuiThemeProvider>
+            <form onSubmit={this.onSubmit} autoComplete="off">
+              <div>
+                <h3> Sign Up </h3>
 
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.fullName
-                })}
-                name="fullName"
-                hintText="Enter your full name"
-                floatingLabelText="Full name"
-                value={this.state.fullName}
-                onChange={this.onChange}
-              />
-              {errors.fullName && (
-                <div className="invalid-feedback">{errors.fullName}</div>
-              )}
-              <br />
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.username
-                })}
-                name="username"
-                hintText="Enter your email"
-                floatingLabelText="Email"
-                value={this.state.username}
-                onChange={this.onChange}
-              />
-              {errors.username && (
-                <div className="invalid-feedback">{errors.username}</div>
-              )}
-              <br />
-              <TextField
-                type="password"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.password
-                })}
-                name="password"
-                hintText="Enter your password"
-                type="password"
-                floatingLabelText="Password"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-              {errors.password && (
-                <div className="invalid-feedback">{errors.password}</div>
-              )}
-              <br />
-              <TextField
-                type="password"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.confirmPassword
-                })}
-                name="verifyPassword"
-                hintText="Verify your password"
-                type="password"
-                floatingLabelText="Verify Password"
-                value={this.state.verifyPassword}
-                onChange={this.onChange}
-              />
-              {errors.password && (
-                <div className="invalid-feedback">{errors.password}</div>
-              )}
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.fullName
+                  })}
+                  name="fullName"
+                  hintText="Enter your full name"
+                  floatingLabelText="Full name"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.fullName}
+                  onChange={this.onChange}
+                />
+                {errors.fullName && (
+                  <div className="invalid-feedback">{errors.fullName}</div>
+                )}
+                <br />
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.username
+                  })}
+                  name="username"
+                  hintText="Enter your email"
+                  floatingLabelText="Email"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.username}
+                  onChange={this.onChange}
+                />
+                {errors.username && (
+                  <div className="invalid-feedback">{errors.username}</div>
+                )}
+                <br />
+                <TextField
+                  type="password"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.password
+                  })}
+                  name="password"
+                  hintText="Enter your password"
+                  type="password"
+                  floatingLabelText="Password"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
+                <br />
+                <TextField
+                  type="password"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.confirmPassword
+                  })}
+                  name="verifyPassword"
+                  hintText="Verify your password"
+                  type="password"
+                  floatingLabelText="Verify Password"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  value={this.state.verifyPassword}
+                  onChange={this.onChange}
+                />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
 
-              <br />
-              <br />
-              <input
-                type="submit"
-                className="btn btn-secondary"
-                value="Submit"
-              />
-            </div>
-          </form>
-        </MuiThemeProvider>
+                <br />
+                <br />
+                <input
+                  type="submit"
+                  className="btn btn-secondary"
+                  value="Submit"
+                />
+              </div>
+            </form>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }

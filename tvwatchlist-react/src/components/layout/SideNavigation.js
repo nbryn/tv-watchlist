@@ -14,11 +14,7 @@ class SideNavigation extends Component {
   render() {
     const { validToken, user } = this.props.user;
 
-    const isAuthenticated = (
-      <nav className="navbar navbar-default" role="navigation">
-        <div className="container" />
-      </nav>
-    );
+    const isAuthenticated = <div className="container" />;
 
     const notAuthenticated = (
       <SideNav

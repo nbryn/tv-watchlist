@@ -37,22 +37,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 .nav-wrapper {
   position: absolute;
   display: inline-block;
-  left: 900px !important;
-}
-
-.list-group-item.delete:hover {
-  cursor: -webkit-grab;
-  background-color: rgb(231, 216, 218);
-}
-
-.list-group-item.update:hover {
-  cursor: -webkit-grab;
-  background-color: rgb(231, 216, 218);
-}
-
-.list-group-item.board:hover {
-  cursor: -webkit-grab;
-  background-color: rgb(231, 216, 218);
+  left: 875px !important;
 }
 
 .col-md-3 {
@@ -65,7 +50,13 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .fa.fa-minus-circle {
-  color: red;
+  color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
+}
+
+.fa.fa-edit {
+  color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
 }
 
 .dark-overlay {
@@ -82,7 +73,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   width: 75%;
   height: -10px;
   left: -14px;
-  margin-top: 50px;
+  margin-top: -120px;
 }
 
 .card-form {
@@ -116,17 +107,34 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .list-group-item.delete {
-  margin-top: 10px;
+  margin-top: 0px;
+  margin-top: 0px;
   width: 125px;
-  height: 45px;
+  height: 50px;
   left: 100px;
+  background-color: transparent;
 }
 
 .list-group-item.update {
-  margin-top: -1px;
+  margin-top: 0px;
   width: 125px;
-  height: 45px;
+  height: 50px;
   left: 100px;
+  background-color: transparent;
+}
+
+.list-group-item.delete:hover {
+  cursor: pointer;
+  background-color: rgba(179, 181, 182, 0);
+}
+
+.list-group-item.update:hover {
+  cursor: pointer;
+  background-color: rgba(179, 181, 182, 0) !important;
+}
+
+.list-group-item.board:hover {
+  cursor: pointer;
 }
 
 .first {
@@ -162,7 +170,9 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 .card.card-body.bg-light.mb-3 {
   width: 635px;
   height: 100px;
-  left: -15px;
+  left: -20px;
+  background-color: transparent !important;
+  margin-bottom: 5px !important;
 }
 
 .btn-block.mt-4 {
@@ -200,9 +210,37 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   border-color: #007bff;
 }
 
-.Sign {
+.sign {
   text-align: center;
-  margin-top: 10px;
+  margin-top: -175px;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 10rem;
+  padding: 12rem 0;
+  background: -webkit-gradient(
+      cover,
+      cover,
+      cover,
+      from(rgba(22, 22, 22, 0.1)),
+      color-stop(75%, rgba(22, 22, 22, 0.5)),
+      to(#161616)
+    ),
+    url("../src/img/landing.jpg");
+  background: linear-gradient(
+      to bottom,
+      rgba(22, 22, 22, 0.1) 0%,
+      rgba(22, 22, 22, 0.5) 75%,
+      #161616 100%
+    ),
+    url("../src/img/landing.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 .nbryn {
@@ -295,58 +333,6 @@ footer.footer {
   font-size: 1.25rem !important;
   line-height: 1.5 !important;
   border-radius: 0.3rem !important;
-}
-
-.chXdSi {
-  font-size: 20px;
-  color: #007bff !important;
-}
-
-#sidebar-wrapper {
-  top: 40px;
-  left: -200px;
-  width: 120px;
-  background-color: #007bff;
-  color: white;
-  position: fixed;
-  height: 20%;
-  z-index: 1;
-}
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  width: 250px;
-  list-style: none;
-}
-.sidebar-nav li {
-  text-indent: 20px;
-  line-height: 50px;
-}
-.sidebar-nav li a {
-  color: white;
-  display: block;
-  text-decoration: none;
-}
-.sidebar-nav li a:hover {
-  background: rgba(255, 255, 255, 0.25);
-  color: white;
-  text-decoration: none;
-}
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
-}
-#sidebar-wrapper.sidebar-toggle {
-  transition: all 0.3s ease-out;
-  margin-left: -200px;
-}
-@media (min-width: 768px) {
-  #sidebar-wrapper.sidebar-toggle {
-    transition: 0s;
-    left: 200px;
-  }
 }
 
 .mx-auto.my-0.text-uppercase {

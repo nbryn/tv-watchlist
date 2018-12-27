@@ -15,7 +15,7 @@ class TvShowMain extends Component {
     const buttonText = "Add TV-Show";
 
     return (
-      <div className="videoprod">
+      <div className="background">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

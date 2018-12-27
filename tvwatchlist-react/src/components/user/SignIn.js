@@ -5,6 +5,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { signIn } from "../../actions/UserActions";
+import { black } from "material-ui/styles/colors";
 
 class SignIn extends Component {
   constructor() {
@@ -52,53 +53,62 @@ class SignIn extends Component {
 
   render() {
     const { errors } = this.state;
+    const styles = {
+      floatingLabelStyle: {
+        color: black
+      }
+    };
     return (
-      <div className="Sign">
-        <MuiThemeProvider>
-          <form onSubmit={this.onSubmit} autocomplete="off">
-            <div>
-              <h3> Sign In </h3>
+      <div className="background">
+        <div className="sign">
+          <MuiThemeProvider>
+            <form onSubmit={this.onSubmit} autoComplete="off">
+              <div>
+                <h3> Sign In </h3>
 
-              <TextField
-                type="text"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.username
-                })}
-                hintText="Enter your username(email)"
-                floatingLabelText="Username"
-                name="username"
-                value={this.state.username}
-                onChange={this.onChange}
-              />
-              {errors.username && (
-                <div className="invalid-feedback">{errors.username}</div>
-              )}
-              <br />
-              <TextField
-                type="password"
-                className={classnames("form-control-file", {
-                  "is-invalid": errors.password
-                })}
-                hintText="Enter your password"
-                floatingLabelText="Password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-              {errors.password && (
-                <div className="invalid-feedback">{errors.password}</div>
-              )}
-              <br />
-              <br />
+                <TextField
+                  type="text"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.username
+                  })}
+                  hintText="Enter your username(email)"
+                  floatingLabelText="Username"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.onChange}
+                />
+                {errors.username && (
+                  <div className="invalid-feedback">{errors.username}</div>
+                )}
+                <br />
+                <TextField
+                  type="password"
+                  className={classnames("form-control-file", {
+                    "is-invalid": errors.password
+                  })}
+                  hintText="Enter your password"
+                  floatingLabelText="Password"
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
+                <br />
+                <br />
 
-              <input
-                type="submit"
-                className="btn btn-secondary"
-                value="Submit"
-              />
-            </div>
-          </form>
-        </MuiThemeProvider>
+                <input
+                  type="submit"
+                  className="btn btn-secondary"
+                  value="Submit"
+                />
+              </div>
+            </form>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }
