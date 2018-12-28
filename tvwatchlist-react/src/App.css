@@ -27,16 +27,6 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   height: -10px;
 }
 
-.fa.fa-minus-circle {
-  color: rgba(0, 0, 0, 0.808);
-  cursor: pointer;
-}
-
-.fa.fa-edit {
-  color: rgba(0, 0, 0, 0.808);
-  cursor: pointer;
-}
-
 .dark-overlay {
   background-color: rgba(243, 10, 10, 0.7);
   position: absolute;
@@ -86,17 +76,31 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 
 .btn-primary.h {
   position: absolute;
-  left: 92px !important;
+  left: 80px !important;
 }
 
 .btn-primary.k {
   position: absolute;
-  left: 177px !important;
+  left: 165px !important;
 }
 
 .btn-primary.j {
   position: absolute;
-  left: 252px !important;
+  left: 245px !important;
+}
+
+.fa.fa-minus-circle {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
+  left: 15px;
+}
+
+.fa.fa-edit {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
+  left: 15px;
 }
 
 .list-group-item.delete {
@@ -104,7 +108,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: 0px;
   width: 125px;
   height: 50px;
-  left: 65px;
+  left: 60px;
   background-color: transparent;
 }
 
@@ -112,13 +116,13 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: 0px;
   width: 125px;
   height: 50px;
-  left: 65px;
+  left: 60px;
   background-color: transparent;
 }
 
 .list-group-item.delete:hover {
   cursor: pointer;
-  background-color: rgba(179, 181, 182, 0.336);
+  background-color: rgba(179, 181, 182, 0.336) !important;
 }
 
 .list-group-item.update:hover {
@@ -131,11 +135,22 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .card.card-body.bg-light.mb-3 {
-  width: 340px;
+  position: relative !important;
+  width: 370px;
   height: 100px;
-  left: -20px;
-  background-color: transparent !important;
+  left: -18px;
+  margin-top: 15px;
+  display: flex !important;
   margin-bottom: 5px !important;
+  background-color: transparent !important;
+  border: transparent !important;
+}
+
+.card {
+  display: flex !important;
+  margin-bottom: 5px !important;
+  background-color: transparent !important;
+  border: transparent !important;
 }
 
 .first {
@@ -164,8 +179,16 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .diplay-4 {
-  left: 175px;
-  margin-top: -55px;
+  margin-top: -40px !important;
+}
+
+.h1 {
+  position: relative !important;
+  left: 0px !important;
+}
+
+.btn.btn.rx {
+  color: white;
 }
 
 .btn-block.mt-4 {
@@ -194,7 +217,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .btn.btn-primary:hover {
-  background-color: #0367d3;
+  background-color: #0367d3 !important;
   opacity: 0.9;
 }
 
@@ -214,29 +237,9 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: -175px;
 }
 
-.signt {
-  position: absolute;
-  margin-top: -175px;
-  left: 800px;
-}
-
-.btn.btn-secondary.k {
-  position: relative;
-  left: 100px;
-}
-
-.btn.btn.rx {
-  color: white;
-}
-
 .h3 {
   position: relative;
   left: 100px;
-}
-
-.h1 {
-  position: relative;
-  left: 165px;
 }
 
 .background {

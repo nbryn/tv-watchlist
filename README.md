@@ -1,6 +1,12 @@
 <h1>TV Watchlist Web App</h1>
 <h2>Summary</h2>
 App with login feature where users can add Series, Movies and TV-Shows to their own watchlist. Items added to the watchlist have title, genre, rating and description and it's also possible to update and delete items which are already on the list.
+<ui>
+<li> <link> https://tv-watchlist.herokuapp.com</link> </li>
+<li>Username: test@test.com </li>
+<li>Password: 1234 </li>
+<li>Loading of the app can take up to two minutes</li>
+</ui>
 <h3> Tech </h3>
 <ui>
 <li> Spring Boot - Convention-over-configuration framework. Built REST APIs with Spring Boot. </li>

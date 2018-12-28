@@ -31,10 +31,10 @@ class SeriesMain extends Component {
                 Series
               </Link>
               <Link to="/tvshow" className="btn btn-md btn-primary j">
-                TV-Shows
+                TvShows
               </Link>
               <br />
-              <hr align="left" width="42.5%" />
+              <hr align="left" width="45%" />
               {series.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

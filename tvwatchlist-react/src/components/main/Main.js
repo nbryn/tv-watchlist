@@ -20,7 +20,7 @@ class Main extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="h1">
-                <h1 className="diplay-4 text-left">All</h1>
+                <h2 className="diplay-4 text-left">All</h2>
               </div>
               <br />
               <NewVideoProdButton />
@@ -32,10 +32,10 @@ class Main extends Component {
                 Series
               </Link>
               <Link to="/tvshow" className="btn btn-md btn-primary j">
-                TV-Shows
+                TvShows
               </Link>
               <br />
-              <hr align="left" width="42.5%" />
+              <hr align="left" width="45%" />
               {videoProds.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

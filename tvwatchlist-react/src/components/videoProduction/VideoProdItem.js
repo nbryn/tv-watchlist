@@ -24,11 +24,12 @@ class VideoProdItem extends Component {
                 Description: {videoProd.description}
               </h6>
             </div>
+
             <div className="col-md-2 nbru">
               <ul className="list-group">
                 <Link to={`/updateVideoProd/${videoProd.title}`}>
                   <li className="list-group-item update">
-                    <i className="fa fa-edit pr-1">Update Info</i>
+                    <i className="fa fa-edit pr-1">Edit Info</i>
                   </li>
                 </Link>
 
@@ -42,6 +43,7 @@ class VideoProdItem extends Component {
             </div>
           </div>
         </div>
+        <hr align="left" width="40%" />
       </div>
     );
   }
