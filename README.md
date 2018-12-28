@@ -1,7 +1,7 @@
 <h1>TV Watchlist Web App</h1>
 <h2>Summary</h2>
 App with login feature where users can add Series, Movies and TV-Shows to their own watchlist. Items added to the watchlist have title, genre, rating and description and it's also possible to update and delete items which are already on the list.
-<h2>Heroku</h2>
+<h3>Heroku</h3>
 <ui>
 <li>Link: <link> https://tv-watchlist.herokuapp.com</link> </li>
 <li>Username: test@test.com </li>
@@ -21,6 +21,7 @@ App with login feature where users can add Series, Movies and TV-Shows to their 
 <li> Redux - Used for state management and for making the app even more modular and functional. </li>
 <li> Axios - Used for asynchronous HTTP requests to the REST endpoints. </li>
 <li> Bootstrap - Predefined CSS and components with great options for customizing. </li>
+<li> Material UI - React components that implement Google's Material Design. </li>
 </ui>
 <h1>Notes regarding the project</h1>
 <h2>Setup Test Environment</h2>
