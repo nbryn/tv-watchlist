@@ -9,35 +9,13 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .bg-primary {
-  background-color: #007bff !important;
-}
-
-.fa.fa-edit {
-  color: #580505;
-}
-
-.link1 {
-  position: absolute;
-  display: inline-block;
-  left: -315px !important;
-}
-
-.link2 {
-  position: absolute;
-  display: inline-block;
-  left: -240px !important;
-}
-
-.link3 {
-  position: absolute;
-  display: inline-block;
-  left: -165px !important;
+  background-color: #007bff;
 }
 
 .nav-wrapper {
   position: absolute;
   display: inline-block;
-  left: 875px !important;
+  left: 1400px;
 }
 
 .col-md-3 {
@@ -96,7 +74,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: -20px;
   margin-bottom: -50px;
   line-height: 0.7;
-  left: -70px;
+  left: -48px;
   width: 20%;
   height: 10px;
   white-space: nowrap;
@@ -106,12 +84,27 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   left: 130px;
 }
 
+.btn-primary.h {
+  position: absolute;
+  left: 92px !important;
+}
+
+.btn-primary.k {
+  position: absolute;
+  left: 177px !important;
+}
+
+.btn-primary.j {
+  position: absolute;
+  left: 252px !important;
+}
+
 .list-group-item.delete {
   margin-top: 0px;
   margin-top: 0px;
   width: 125px;
   height: 50px;
-  left: 100px;
+  left: 65px;
   background-color: transparent;
 }
 
@@ -119,22 +112,30 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: 0px;
   width: 125px;
   height: 50px;
-  left: 100px;
+  left: 65px;
   background-color: transparent;
 }
 
 .list-group-item.delete:hover {
   cursor: pointer;
-  background-color: rgba(179, 181, 182, 0);
+  background-color: rgba(179, 181, 182, 0.336);
 }
 
 .list-group-item.update:hover {
   cursor: pointer;
-  background-color: rgba(179, 181, 182, 0) !important;
+  background-color: rgba(179, 181, 182, 0.336) !important;
 }
 
 .list-group-item.board:hover {
   cursor: pointer;
+}
+
+.card.card-body.bg-light.mb-3 {
+  width: 340px;
+  height: 100px;
+  left: -20px;
+  background-color: transparent !important;
+  margin-bottom: 5px !important;
 }
 
 .first {
@@ -167,14 +168,6 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   margin-top: -55px;
 }
 
-.card.card-body.bg-light.mb-3 {
-  width: 635px;
-  height: 100px;
-  left: -20px;
-  background-color: transparent !important;
-  margin-bottom: 5px !important;
-}
-
 .btn-block.mt-4 {
   background-color: #007bff;
   border-color: #007bff;
@@ -200,6 +193,11 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   border-color: #a1a2a5;
 }
 
+.btn.btn-primary:hover {
+  background-color: #0367d3;
+  opacity: 0.9;
+}
+
 .btn.btn-default:hover {
   background-color: #919294;
   opacity: 0.9;
@@ -211,8 +209,34 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .sign {
+  position: relative;
   text-align: center;
   margin-top: -175px;
+}
+
+.signt {
+  position: absolute;
+  margin-top: -175px;
+  left: 800px;
+}
+
+.btn.btn-secondary.k {
+  position: relative;
+  left: 100px;
+}
+
+.btn.btn.rx {
+  color: white;
+}
+
+.h3 {
+  position: relative;
+  left: 100px;
+}
+
+.h1 {
+  position: relative;
+  left: 165px;
 }
 
 .background {

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const NewVideoProdButton = props => {
   return (
     <React.Fragment>
-      <Link to="/addVideoProd" className="btn btn-lg btn-primary mr-1">
-        {props.text}
+      <Link to="/addVideoProd" className="btn btn-md btn-primary mr-1">
+        New
       </Link>
     </React.Fragment>
   );

@@ -78,7 +78,8 @@ class UpdateVideoProd extends Component {
           <MuiThemeProvider>
             <form onSubmit={this.onSubmit} autoComplete="off">
               <div>
-                <h3> Edit info </h3>
+                <h3> Edit </h3>
+
                 <TextField
                   type="text"
                   name="title"
@@ -144,7 +145,7 @@ class UpdateVideoProd extends Component {
                   data-toggle="buttons"
                 >
                   <div className="first">
-                    <label className="btn btn">
+                    <label className="btn btn rx">
                       <input
                         type="radio"
                         placeholder="Type"
@@ -159,7 +160,7 @@ class UpdateVideoProd extends Component {
                     </label>
                   </div>
                   <div className="second">
-                    <label className="btn btn">
+                    <label className="btn btn rx">
                       <input
                         type="radio"
                         placeholder="Type"
@@ -174,7 +175,7 @@ class UpdateVideoProd extends Component {
                     </label>
                   </div>
                   <div className="third">
-                    <label className="btn btn">
+                    <label className="btn btn rx">
                       <input
                         type="radio"
                         placeholder="Type"

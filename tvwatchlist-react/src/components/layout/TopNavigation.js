@@ -18,28 +18,6 @@ class TopNavigation extends Component {
           <ul className="navbar-nav mr-auto" />
 
           <ul className="navbar-nav ml-auto">
-            <div className="link1">
-              <li className="nav-item">
-                <Link className="nav-link" to="/movie">
-                  Movies
-                </Link>
-              </li>
-            </div>
-            <div className="link2">
-              <li className="nav-item">
-                <Link className="nav-link" to="/series">
-                  Series
-                </Link>
-              </li>
-            </div>
-            <div className="link3">
-              <li className="nav-item">
-                <Link className="nav-link" to="/tvShow">
-                  TV-Shows
-                </Link>
-              </li>
-            </div>
-
             <li className="nav-item">
               <Link className="nav-link" to="/main">
                 <i className="fas fa-user-circle mr-1" />

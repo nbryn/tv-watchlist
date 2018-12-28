@@ -17,10 +17,12 @@ class VideoProdItem extends Component {
           <div className="row">
             <div className="col-1" />
             <div className="col-md-4 col-md-2 col-1">
-              <h6>Title: {videoProd.title}</h6>
-              <h6>Genre: {videoProd.genre}</h6>
-              <h6>Rating: {videoProd.rating}</h6>
-              <h6>Description: {videoProd.description}</h6>
+              <h6 style={{ color: "white" }}>Title: {videoProd.title}</h6>
+              <h6 style={{ color: "white" }}>Genre: {videoProd.genre}</h6>
+              <h6 style={{ color: "white" }}>Rating: {videoProd.rating}</h6>
+              <h6 style={{ color: "white" }}>
+                Description: {videoProd.description}
+              </h6>
             </div>
             <div className="col-md-2 nbru">
               <ul className="list-group">

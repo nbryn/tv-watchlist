@@ -4,6 +4,7 @@ import NewVideoProdButton from "../videoProduction/NewVideoProdButton";
 import { connect } from "react-redux";
 import { getTvShows } from "../../actions/TvShowActions";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class TvShowMain extends Component {
   componentDidMount() {
@@ -12,18 +13,28 @@ class TvShowMain extends Component {
 
   render() {
     const { tvShows } = this.props.tvShow;
-    const buttonText = "Add TV-Show";
 
     return (
       <div className="background">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="diplay-4">TV-Shows</h2>
+              <div className="h1">
+                <h2 className="diplay-4">TV-Shows</h2>
+              </div>
               <br />
-              <NewVideoProdButton text={buttonText} />
+              <NewVideoProdButton />
+              <Link to="/movie" className="btn btn-md btn-primary h">
+                Movies
+              </Link>
+              <Link to="/series" className="btn btn-md btn-primary k">
+                Series
+              </Link>
+              <Link to="/tvshow" className="btn btn-md btn-primary j">
+                TV-Shows
+              </Link>
               <br />
-              <hr align="left" width="57%" />
+              <hr align="left" width="42.5%" />
               {tvShows.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

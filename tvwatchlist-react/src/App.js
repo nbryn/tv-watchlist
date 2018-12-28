@@ -17,7 +17,6 @@ import SignIn from "./components/user/SignIn";
 import { signOut } from "./actions/UserActions";
 import TopNavigation from "./components/layout/TopNavigation";
 import Landing from "./components/layout/Landing";
-import SideNavigation from "./components/layout/SideNavigation";
 import AddVideoProd from "./components/videoProduction/AddVideoProd";
 import UpdateVideoProd from "./components/videoProduction/UpdateVideoProd";
 
@@ -45,7 +44,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <TopNavigation />
-            <SideNavigation />
 
             <Route exact path="/" component={Landing} />
             <Route exact path="/signup" component={SignUp} />
@@ -60,7 +58,7 @@ class App extends Component {
               />
               <SecureRoute exact path="/movie" component={MovieMain} />
               <SecureRoute exact path="/series" component={SeriesMain} />
-              <SecureRoute exact path="/tvShow" component={TvShowMain} />
+              <SecureRoute exact path="/tvshow" component={TvShowMain} />
               <SecureRoute
                 exact
                 path="/updateVideoProd/:id"

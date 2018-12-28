@@ -4,6 +4,7 @@ import NewVideoProdButton from "../videoProduction/NewVideoProdButton";
 import { connect } from "react-redux";
 import { getSeries } from "../../actions/SeriesActions";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class SeriesMain extends Component {
   componentDidMount() {
@@ -12,18 +13,28 @@ class SeriesMain extends Component {
 
   render() {
     const { series } = this.props.series;
-    const buttonText = "Add Series";
 
     return (
       <div className="background">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="diplay-4">Series</h2>
+              <div className="h1">
+                <h2 className="diplay-4">Series</h2>
+              </div>
               <br />
-              <NewVideoProdButton text={buttonText} />
+              <NewVideoProdButton />
+              <Link to="/movie" className="btn btn-md btn-primary h">
+                Movies
+              </Link>
+              <Link to="/series" className="btn btn-md btn-primary k">
+                Series
+              </Link>
+              <Link to="/tvshow" className="btn btn-md btn-primary j">
+                TV-Shows
+              </Link>
               <br />
-              <hr align="left" width="57%" />
+              <hr align="left" width="42.5%" />
               {series.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}
