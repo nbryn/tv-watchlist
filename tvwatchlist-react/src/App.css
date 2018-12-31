@@ -246,6 +246,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: auto;
   min-height: 10rem;
   padding: 12rem 0;
   background: -webkit-gradient(
@@ -268,13 +269,13 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  overflow: auto;
 }
 
 .nbryn {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: auto;
   min-height: 10rem;
   padding: 12rem 0;
   background: -webkit-gradient(
