@@ -23,8 +23,8 @@ App with login feature where users can add Series, Movies and TV-Shows to their 
 <li> Bootstrap - Predefined CSS and components with great options for customizing. </li>
 <li> Material UI - React components that implement Google's Material Design. </li>
 </ui>
-<h1>Notes regarding the project</h1>
-<h2>Setup Test Environment</h2>
-<h3> Starting the test server</h3>
+<h2>Notes regarding the project</h2>
+<h3>Setup Test Environment</h3>
+<h4> Starting the test server</h4>
 
 Install dependencies with npm install. Then simply run npm run-script npm start. This will start the development server on port 3000. This setup includes hot reloading of react components, so styling and development should be very fast.
