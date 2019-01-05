@@ -35,7 +35,7 @@ class Main extends Component {
                 TvShows
               </Link>
               <br />
-              <hr align="left" width="45%" />
+              <hr align="left" width="40.5%" />
               {videoProds.map(videoProd => (
                 <VideoProdItem key={videoProd.id} videoProd={videoProd} />
               ))}

@@ -14,7 +14,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 
 .nav-wrapper {
   position: absolute;
-  display: inline-block;
+  display: flex !important;
   left: 1400px;
 }
 
@@ -106,17 +106,17 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 .list-group-item.delete {
   margin-top: 0px;
   margin-top: 0px;
-  width: 125px;
+  width: 90px;
   height: 50px;
-  left: 60px;
+  left: 75px;
   background-color: transparent;
 }
 
 .list-group-item.update {
   margin-top: 0px;
-  width: 125px;
+  width: 90px;
   height: 50px;
-  left: 60px;
+  left: 75px;
   background-color: transparent;
 }
 
@@ -136,7 +136,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 
 .card.card-body.bg-light.mb-3 {
   position: relative !important;
-  width: 370px;
+  width: 320px;
   height: 100px;
   left: -18px;
   margin-top: 15px;
@@ -147,7 +147,6 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .card {
-  display: flex !important;
   margin-bottom: 5px !important;
   background-color: transparent !important;
   border: transparent !important;
@@ -243,7 +242,7 @@ nav.navbar-expand-sm.navbar-dark.bg-primary.mb-4 {
 }
 
 .background {
-  position: absolute;
+  position: absolute !important;
   width: 100%;
   height: 100%;
   overflow: auto;

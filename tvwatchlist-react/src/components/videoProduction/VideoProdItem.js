@@ -29,7 +29,7 @@ class VideoProdItem extends Component {
               <ul className="list-group">
                 <Link to={`/updateVideoProd/${videoProd.title}`}>
                   <li className="list-group-item update">
-                    <i className="fa fa-edit pr-1">Edit Info</i>
+                    <i className="fa fa-edit pr-1">Edit</i>
                   </li>
                 </Link>
 
