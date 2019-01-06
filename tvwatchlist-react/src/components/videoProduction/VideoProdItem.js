@@ -17,12 +17,10 @@ class VideoProdItem extends Component {
           <div className="row">
             <div className="col-1" />
             <div className="col-md-4 col-md-2 col-1">
-              <h6 style={{ color: "white" }}>Title: {videoProd.title}</h6>
-              <h6 style={{ color: "white" }}>Genre: {videoProd.genre}</h6>
-              <h6 style={{ color: "white" }}>Rating: {videoProd.rating}</h6>
-              <h6 style={{ color: "white" }}>
-                Description: {videoProd.description}
-              </h6>
+              <h6 style={style}>Title: {videoProd.title}</h6>
+              <h6 style={style}>Genre: {videoProd.genre}</h6>
+              <h6 style={style}>Rating: {videoProd.rating}</h6>
+              <h6 style={style}>Description: {videoProd.description}</h6>
             </div>
 
             <div className="col-md-2 nbru">
@@ -48,6 +46,10 @@ class VideoProdItem extends Component {
     );
   }
 }
+
+const style = {
+  color: "white"
+};
 
 VideoProdItem.propTypes = {
   deleteVideoProd: PropTypes.func.isRequired
