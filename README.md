@@ -4,14 +4,14 @@ App with login feature where users can add Series, Movies and TV-Shows to their 
 <h3>Heroku</h3>
 <ui>
 <li>Link: <link> https://tv-watchlist.herokuapp.com</link> </li>
-<li>Username: test@test.com </li>
+<li>Username: test@test.com - Or make your own account </li>
 <li>Password: 1234 </li>
 <li>Loading of the app can take up to two minutes</li>
 </ui>
 <h3> Tech </h3>
 <ui>
 <li> Spring Boot - Convention-over-configuration framework. Built REST APIs with Spring Boot. </li>
-<li> Spring Data JPA - Support for the JAVA Persistence API used for Object Relational Mapping. </li>
+<li> Spring Data JPA - Support for the Java Persistence API used for Object Relational Mapping. </li>
 <li> Spring Security - Secured the REST APIs with Spring Security. </li>
 <li> JWT - Also used for securing REST APIs. Smart way to deal with tokens and login sessions. </i>
 <li> Bcrypt - Encryption for stored passwords. </li>
