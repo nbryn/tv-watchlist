@@ -1,4 +1,4 @@
-import { GET_MOVIES } from "../actions/ActionTypes";
+import { GET_MOVIES } from "../actions/types";
 
 const initialState = {
   movies: [],

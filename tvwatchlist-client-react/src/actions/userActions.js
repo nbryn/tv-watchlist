@@ -19,12 +19,13 @@ export const newUser = (user, history) => async dispatch => {
   }
 };
 
-export const signIn = SignInRequest => async dispatch => {
+export const signIn = signInRequest => async dispatch => {
   try {
     const res = await axios.post(
       "https://tv-watchlist.herokuapp.com/users/signin",
-      SignInRequest
+      signInRequest
     );
+
     const { token } = res.data;
     localStorage.setItem("jwtToken", token);
 

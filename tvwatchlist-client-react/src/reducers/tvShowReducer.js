@@ -1,4 +1,4 @@
-import { GET_TVSHOWS } from "../actions/ActionTypes";
+import { GET_TVSHOWS } from "../actions/types";
 
 const initialState = {
   tvShows: [],

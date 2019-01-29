@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import classnames from "classnames";
-import { newVideoProd } from "../../actions/VideoProdActions";
+import { newVideoProd } from "../../actions/videoProdActions";
 import { black } from "material-ui/styles/colors";
 
 class AddVideoProd extends Component {
@@ -24,18 +24,12 @@ class AddVideoProd extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
+  onSubmit(event) {
+    event.preventDefault();
 
     const newVideoProd = {
       title: this.state.title,

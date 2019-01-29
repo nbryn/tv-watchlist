@@ -1,10 +1,5 @@
 import axios from "axios";
-import {
-  GET_ERRORS,
-  GET_ALL,
-  DELETE_VIDEOPROD,
-  GET_VIDEOPROD
-} from "./ActionTypes";
+import { GET_ERRORS, GET_ALL, DELETE_VIDEOPROD, GET_VIDEOPROD } from "./types";
 
 export const newVideoProd = (videoProd, history) => async dispatch => {
   try {

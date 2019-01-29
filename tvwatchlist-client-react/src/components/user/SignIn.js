@@ -4,7 +4,7 @@ import TextField from "material-ui/TextField";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { signIn } from "../../actions/UserActions";
+import { signIn } from "../../actions/userActions";
 import { black } from "material-ui/styles/colors";
 
 class SignIn extends Component {
@@ -27,18 +27,19 @@ class SignIn extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.user.validToken) {
-      this.props.history.push("/main");
+      nextProps.history.push("/main");
     }
 
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      return { errors: nextProps.errors };
     }
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onSubmit(event) {
+    event.preventDefault();
+
     const LoginRequest = {
       username: this.state.username,
       password: this.state.password
@@ -47,8 +48,8 @@ class SignIn extends Component {
     this.props.signIn(LoginRequest);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {

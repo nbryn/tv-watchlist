@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import VideoProdItem from "../../components/videoProduction/VideoProdItem";
 import NewVideoProdButton from "../videoProduction/NewVideoProdButton";
 import { connect } from "react-redux";
-import { getMovies } from "../../actions/MovieActions";
+import { getMovies } from "../../actions/movieActions";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 

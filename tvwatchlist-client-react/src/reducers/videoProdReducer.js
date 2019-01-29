@@ -1,8 +1,4 @@
-import {
-  GET_ALL,
-  GET_VIDEOPROD,
-  DELETE_VIDEOPROD
-} from "../actions/ActionTypes";
+import { GET_ALL, GET_VIDEOPROD, DELETE_VIDEOPROD } from "../actions/types";
 
 const initialState = {
   videoProds: [],

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { deleteVideoProd } from "../../actions/VideoProdActions";
+import { deleteVideoProd } from "../../actions/videoProdActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getVideoProd, newVideoProd } from "../../actions/VideoProdActions";
+import { getVideoProd, newVideoProd } from "../../actions/videoProdActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
@@ -25,33 +25,31 @@ class UpdateVideoProd extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
-    const { id, title, genre, rating, description, type } = nextProps.videoProd;
-
-    this.setState({
-      id,
-      title,
-      genre,
-      rating,
-      description,
-      type
-    });
-  }
-
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getVideoProd(id, this.props.history);
+
+    this.setState({
+      title: this.props.videoProd.title,
+      genre: this.props.videoProd.genre,
+      rating: this.props.videoProd.rating,
+      description: this.props.videoProd.description,
+      type: this.props.videoProd.type
+    });
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.errors) {
+      return { errors: nextProps.errors };
+    }
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
 
     const updateVideoProd = {
       id: this.state.id,

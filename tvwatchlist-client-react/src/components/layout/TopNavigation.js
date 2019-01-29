@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { signOut } from "../../actions/UserActions";
+import { signOut } from "../../actions/userActions";
 import { connect } from "react-redux";
 
 class TopNavigation extends Component {

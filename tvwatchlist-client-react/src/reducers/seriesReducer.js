@@ -1,4 +1,4 @@
-import { GET_SERIES } from "../actions/ActionTypes";
+import { GET_SERIES } from "../actions/types";
 
 const initialState = {
   series: [],
