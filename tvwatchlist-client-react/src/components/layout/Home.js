@@ -17,9 +17,9 @@ class Landing extends Component {
           <div className="container d-flex h-500 align-items-center">
             <div className="mx-auto text-center">
               <h1 className="mx-auto my-0 text-uppercase">TV-Watchlist</h1>
-              <br />
+
               <h2 className="text-white-50 mx-auto mt-2 mb-5">
-                A free app where you can track Movies, Series and TV-Shows
+                An app where you can track Movies, Series and TV-Shows
               </h2>
               <br />
 

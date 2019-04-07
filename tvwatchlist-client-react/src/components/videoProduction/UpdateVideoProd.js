@@ -28,14 +28,20 @@ class UpdateVideoProd extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getVideoProd(id, this.props.history);
+  }
 
-    this.setState({
-      title: this.props.videoProd.title,
-      genre: this.props.videoProd.genre,
-      rating: this.props.videoProd.rating,
-      description: this.props.videoProd.description,
-      type: this.props.videoProd.type
-    });
+  componentDidUpdate(previousProps, previousState) {
+    if (previousProps.videoProd !== this.props.videoProd) {
+      this.setState({
+        title: this.props.videoProd.title,
+        genre: this.props.videoProd.genre,
+        rating: this.props.videoProd.rating,
+        description: this.props.videoProd.description,
+        type: this.props.videoProd.type
+      });
+    } else {
+      // Preventing infinite loop
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -85,6 +91,7 @@ class UpdateVideoProd extends Component {
                   floatingLabelText="Title"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   value={this.state.title}
+                  onChange={this.onChange.bind()}
                   disabled
                 />
 
@@ -99,7 +106,7 @@ class UpdateVideoProd extends Component {
                   floatingLabelText="Genre"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   value={this.state.genre}
-                  onChange={this.onChange}
+                  onChange={this.onChange.bind()}
                 />
                 {errors.genre && (
                   <div className="invalid-feedback">{errors.genre}</div>
@@ -115,7 +122,7 @@ class UpdateVideoProd extends Component {
                   floatingLabelText="Rating"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   value={this.state.rating}
-                  onChange={this.onChange}
+                  onChange={this.onChange.bind()}
                 />
                 {errors.rating && (
                   <div className="invalid-feedback">{errors.rating}</div>
@@ -131,7 +138,7 @@ class UpdateVideoProd extends Component {
                   floatingLabelText="Description"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   value={this.state.description}
-                  onChange={this.onChange}
+                  onChange={this.onChange.bind()}
                 />
                 {errors.description && (
                   <div className="invalid-feedback">{errors.description}</div>
@@ -152,7 +159,7 @@ class UpdateVideoProd extends Component {
                         autoComplete="off"
                         value={this.state.type}
                         value={"movie"}
-                        onChange={this.onChange}
+                        onChange={this.onChange.bind()}
                       />{" "}
                       Movie
                     </label>
@@ -167,7 +174,7 @@ class UpdateVideoProd extends Component {
                         autoComplete="off"
                         value={this.state.type}
                         value={"series"}
-                        onChange={this.onChange}
+                        onChange={this.onChange.bind()}
                       />{" "}
                       Series
                     </label>
@@ -182,7 +189,7 @@ class UpdateVideoProd extends Component {
                         autoComplete="off"
                         value={this.state.type}
                         value={"tvshow"}
-                        onChange={this.onChange}
+                        onChange={this.onChange.bind()}
                       />{" "}
                       <br />
                       TV-Show
@@ -206,7 +213,6 @@ class UpdateVideoProd extends Component {
 }
 
 UpdateVideoProd.propTypes = {
-  getVideoProds: PropTypes.func.isRequired,
   newVideoProd: PropTypes.func.isRequired,
   videoProd: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
