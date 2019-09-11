@@ -6,7 +6,7 @@ App with login feature where users can add Series, Movies and TV-Shows to their 
 <li>Link: <link> https://tv-watchlist.herokuapp.com</link> </li>
 <li>Username: test@test.com - Or make your own account </li>
 <li>Password: 1234 </li>
-<li>Loading of the app can take up to two minutes</li>
+<li>Loading the app can take up to two minutes</li>
 </ui>
 <h3> Tech </h3>
 <ui>
