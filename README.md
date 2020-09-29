@@ -1,6 +1,7 @@
 # TV Watchlist Web App
 ## Summary
 App with login feature where users can add Series, Movies and TV-Shows to their own watchlist. Items added to the watchlist have title, genre, rating and description and it's also possible to update and delete items which are already on the list. <br />
+
 The app is deployed and can be accessed through the link below.
 
 ## Heroku
